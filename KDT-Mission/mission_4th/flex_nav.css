@@ -35,7 +35,6 @@ body{
     font-weight:700;
     text-align: center;
     line-height:50px;
-    position:fixed;
 }
 .container1{
     background-color: #ffdde1;
@@ -53,6 +52,9 @@ body{
     background-color: #c9d6ff;
     flex-grow:1;
     flex-basis:0;
+}
+.bottommenu:last-child{
+    flex-grow:2;
 }
 /*버튼에 마우스가 올라가면 버튼 색상이 변경*/
 .topmenu:hover{
