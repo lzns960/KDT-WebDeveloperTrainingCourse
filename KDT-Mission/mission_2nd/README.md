@@ -28,4 +28,6 @@
         2. before
     5. 속성 선택자
 4. 선택자를 적용할 요소가 부족할 경우에는 기존 HTML에 요소를 추가하여 모든 선택자를 사용해 주세요!
+
+
 ![캡처](https://user-images.githubusercontent.com/78632299/175271560-ad13f791-133b-4422-8654-900e5b6f8b62.JPG)
