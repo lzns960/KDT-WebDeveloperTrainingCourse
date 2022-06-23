@@ -16,6 +16,7 @@ body{
     background: linear-gradient(#ee9ca7,#fffcdc);
 }
 /* flex 컨테이너 동일 속성*/
+/* fixed 뷰포트 최상단 최하단 flex nav 메뉴 고정되어 스크롤따라 다니도록 하기 */
 .container{
     display:flex;
     height:70px;
@@ -29,26 +30,27 @@ body{
 
 /* flex 아이템 동일 속성 */
 .container>div{
-
     height:50px;
     border-radius: 30px;
     font-weight:700;
     text-align: center;
     line-height:50px;
 }
+/* 상단 flex 아이템 */
 .container1{
-    flex-basis:150px;
     background-color: #ffdde1;
     top:0px;
 }
 .container2{
-    bottom:0px;
     background-color: #e2e2e2;
+    bottom:0px;
 }
+/*화면 상단 flex item 요소 속성*/
 .topmenu{
     background-color: #FFC2CA;
+    flex-basis:150px;
 }
-
+/*화면 하단 flex item 고정비율 1:1:1:2*/
 .bottommenu{
     background-color: #c9d6ff;
     flex-grow:1;
