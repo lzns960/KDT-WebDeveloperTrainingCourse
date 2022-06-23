@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin-bottom:20px;
+        }
+        .parent-visible{
+            width: 200px;
+            height: 200px;
+            background-color: royalblue;
+            overflow: visible;
+        }
+        .child-visible{
+            width: 400px;
+            height: 100px;
+            background-color: orange;
+        }
+        .parent-hidden{
+            width: 200px;
+            height: 200px;
+            background-color: royalblue;
+            overflow: hidden;
+        }
+        .child-hidden{
+            width: 400px;
+            height: 100px;
+            background-color: orange;
+        }
+        .parent-scroll{
+            width: 200px;
+            height: 200px;
+            background-color: royalblue;
+            overflow: scroll;
+        }
+        .child-scroll{
+            width: 400px;
+            height: 100px;
+            background-color: orange;
+        }
+        .parent-auto{
+            width: 200px;
+            height: 200px;
+            background-color: royalblue;
+            overflow: auto;
+        }
+        .child-auto{
+            width: 400px;
+            height: 100px;
+            background-color: orange;
+        }
+        .parent-xy{
+            width: 200px;
+            height: 200px;
+            background-color: royalblue;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+        .child-xy{
+            width: 100px;
+            height: 400px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent-visible">
+        <div class = "child-visible"></div>
+    </div>
+    <div class="parent-hidden">
+        <div class = "child-hidden"></div>
+    </div>
+    <div class="parent-scroll">
+        <div class = "child-scroll"></div>
+    </div>
+    <div class="parent-auto">
+        <div class = "child-auto"></div>
+    </div>
+    <div class="parent-xy">
+        <div class = "child-xy"></div>
+    </div>
+</body>
+</html>

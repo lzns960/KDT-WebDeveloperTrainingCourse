@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:100px;
+            height: 100px;
+            background-color: beige;
+            border-style:solid;
+            border-color:#000;
+            margin-bottom: 5px;
+        }
+        .width{
+            /*border 기본 속성은 medium 이지만, 정확한 단위(em, px 등)를 입력해주는 것이 좋다.*/
+            border-width: 1px 2px 3px 4px;
+        }
+        .style{
+            border-style:solid dashed double dotted;
+        }
+        .color{
+            border-color:tomato navy palevioletred black;
+        }
+        .my-choice{
+            border-top:1px dashed tomato;
+            border-left:2px solid turquoise;
+            border-right:3px double black;
+            border-bottom:4px dotted palegreen;
+        }
+    </style>
+</head>
+<body>
+    <div class = "width"></div>
+    <div class = "style"></div>
+    <div class = "color"></div>
+    <div class = "my-choice"></div>
+</body>
+</html>

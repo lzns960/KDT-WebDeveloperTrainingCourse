@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         /* span 태그는 width와 height가 먹히지 않는다.
+            span태그는 margin값(바깥여백)이 좌우로만 먹힌다. 
+            padding 안쪽여백, span의 콘텐츠는 영향을 받지않고 배경색은 영향받는다. 
+        */ 
+        .html {
+            background-color: rgba(0, 0, 0, 0.555);
+            padding:20px;
+        }
+        .css {
+            background-color: skyblue;
+            margin: 30px;
+        }
+        .js{
+            background-color: green;
+        }
+        #html {
+            width: 200px;
+            height: 300px;
+            background-color: orange;
+            margin: 50px;
+        }
+        #css {
+            height: 300px;
+            background-color: skyblue;
+            margin-top: 30px;
+        }
+        #js{
+            background-color: green;
+            width: 300px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body> 
+    <span class = "html">HTML</span>
+    <span class = "css">CSS</span>
+    <span class = "js">Javascript</span>
+    <div id = "html">HTML</div>
+    <div id = "css">CSS</div>
+    <div id = "js">Javascript</div>
+</body>
+</html>

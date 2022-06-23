@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            position: relative;
+            height:3000px;
+        }
+        .wrap{
+            width: 600px;
+            height: 600px;
+            background-color: tomato;
+        }
+        .container{
+            position:relative;
+            width:500px;
+            height:500px;
+            background-color: royalblue;
+        }
+        .item{
+            background-color: orange;
+            border: 4px dashed red;
+        }
+        .item1{
+            width: 100px;
+            height: 100px;
+            left:50px;
+            top:30px;
+        }
+        .item2{
+            position:absolute;
+            width: 140px;
+            height: 70px;
+            right:30px;
+            bottom:100px;
+        }
+        .item3{
+            width:70px;
+            height:140px;
+            position:fixed;
+            right: 100px;
+            top:100px;
+        }
+    </style>
+</head>
+<body>
+    <div class = "wrap">
+        <div class="container">
+            <div class="item item1"></div>
+            <div class="item item2"></div>
+            <div class="item item3"></div>
+
+        </div>
+    </div>
+</body>
+</html>

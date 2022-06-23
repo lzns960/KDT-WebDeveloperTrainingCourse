@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7월 달력</title>
+    <style>
+        div{
+            display:inline-block;
+        }
+        /* viewport의 가로가 커져도 달력이 분리되지 않도록 각 주마다 width 차지 */
+        div div{display:block}
+        span{
+            display: inline-block;
+            width:100px;
+            height:100px;
+            padding:3px 3px 0px;
+        }
+        /* span 텍스트 수직가운데정렬은 line-height값을 height값과 동일하게 설정 */
+        #dayofweek{
+            text-align: center;
+            line-height:100px ;
+        }
+        #dayofweek span:nth-child(2n){
+            background-color: #f5ebe0;
+        }
+        #dayofweek span:nth-child(2n+1){
+            background-color: #d5bdaf;
+        }
+        div>div:nth-child(2n){
+            background-color:#e3d5ca;
+        }
+        div>div:nth-child(2n+1){
+            background-color: #f5ebe0;
+        }
+        div>div:not(first-child)>span:nth-child(2n+1){
+            background-color: #d5bdaf;
+        }
+        #week1>span:not(:nth-child(n+5)){
+            background-color: white !important;
+        }
+        #posco {
+            background-color: #1d3557 !important;
+            color: white;
+        }
+        #posco::after{
+            content: " 포스코";
+        }
+        .sun{
+            background-color: #e9c46a !important;
+        }
+        div>div:nth-child(2n+1) .sun{
+            background-color: #edae49 !important;
+        }
+
+    </style>
+</head>
+<body>
+    <div id = "calendar">
+        <div id="dayofweek">
+            <span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span><span class="sun">일</span>
+        </div>
+
+        <div id="week1">
+            <span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span id="posco">1</span><span>2</span><span class="sun">3</span>
+        </div>
+
+        <div id="week2">
+            <span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span class="sun">10</span>
+        </div>
+
+        <div id="week3">
+            <span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span class="sun">17</span>
+        </div>
+
+        <div id="week4">
+            <span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span class="sun">24</span>
+        </div>
+
+        <div id="week5">
+            <span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span class="sun">31</span>
+        </div>
+    </div>
+
+</body>
+</html>
