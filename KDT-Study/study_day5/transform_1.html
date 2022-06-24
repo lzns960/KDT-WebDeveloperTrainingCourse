@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 20px;
+        }
+        .back{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            margin-bottom: 20px;
+        }
+
+        .front{
+            width:100px;
+            height: 100px;
+            background-color: peru;
+            transition: 1.5s;
+        }
+        .frontbox1:active{
+            transform: translate(120px,0) rotate(45deg);
+        }
+        .frontbox2:active{
+            transform: translate(100px,0) scaleX(2);
+        }
+        .frontbox3:active{
+            transform: rotateY(180deg);
+        }
+        .frontbox4:active{
+            transform: translate(50px,0) skewX(-45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="back backbox1">
+        <div class="front frontbox1"></div>
+    </div>
+    <div class="back backbox2">
+        <div class="front frontbox2"></div>
+    </div>
+    <div class="back backbox3">
+        <div class="front frontbox3"></div>
+    </div>
+    <div class="back backbox4">
+        <div class="front frontbox4"></div>
+    </div>
+</body>
+</html>
