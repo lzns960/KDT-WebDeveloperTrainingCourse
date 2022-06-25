@@ -32,7 +32,7 @@ body{
     transform: scale(1.3) skew(-14deg);
     z-index:1;
     background-color:orange;
-    border-color: orange;
+   /* border-color: orange;*/
 }
 .container .heroes .hero .image{
     width:100%;
@@ -40,6 +40,7 @@ body{
     background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
+    transform:skew(14deg);
 
 
 }
