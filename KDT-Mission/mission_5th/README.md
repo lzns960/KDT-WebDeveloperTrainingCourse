@@ -6,3 +6,5 @@ CSS 속성을 적용 하시어 최대한 비슷하게 구현을 부탁 드립니
 캐릭터 30명
 hover 시 효과 주기
 active 시 효과 주기
+
+![image](https://user-images.githubusercontent.com/78632299/175784813-b3287d43-01d7-43e9-b899-ce760a86419e.png)
