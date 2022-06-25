@@ -1,87 +1,178 @@
 body{
-    height:100vh;
-    background-image:url(/KDT-Mission/mission_5th/champions/bg.jpg);
+    background-image:url(/KDT-Mission/mission_5th/champions/bg2.jpg);
+    background-position:center;
     background-size:cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-/*.container{}*/
-.container .champions{
-    display : flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 700px;
-    background-color:#203A43;
-    opacity: 0.7;
-}
-.container .champions::after{
-opacity: 0.5;
-}
-.container .champions .champion{
-    width: 50px;
-    height: 50x;
-    margin:4px;
-    border: 2px solid gray;
-    background-color: white;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-body{
-    height:100vh;
-
-    /* 뷰포트보다 더 긴 이미지가 있을 때만 사용하는 걸 추천*/
-}
-/*.container{}*/
-.container .heroes {
-    display:flex;
-    max-width:700px;
-    flex-wrap: wrap;
-    justify-content:center;
-    padding: 40px 20px;
-    margin: 0 auto;
-}
-.container .heroes .hero {    
-    width: 80px;
-    height: 84px;
-    margin: 4px;
-    border: 3px solid white;
-    transform: skew(-14deg);
-    background-color: gray;
-    border-radius: 10%;
-    box-sizing: border-box;
-    overflow: hidden; /* 이미지가 테두리 밖으로 튀어나오는 것을 숨겨준다.*/
-
-}
-.container .heroes .hero:hover{
-    transition: ease-in-out .5s;
-    transform: scale(1.3) skew(-14deg);
-    z-index:1;
-    background-color:orange;
-   /* border-color: orange;*/
-}
-.container .heroes .hero .image{
-    width:100%;
-    height:100%;
-    background-size:cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transform:skew(14deg);
-
-
-}
-.container .heroes .hero:nth-child(1) .image{
-    background-image:url(/study_day5/images/hero1.png);
-}
-
-.container .logo{
-    max-width: 300px;
+.logo{
+    max-width: 400px;
     margin: 0 auto;
     padding: 0 20px;
 }
-.container .logo img{
+.logo img{
     width: 100%;
 }
-/* 이미지 크기를 줄이기보다 이미지태그를 포함하고 있는 div 사이즈를 줄이는 것이 좋다. 이미지 태그는 100%*/
-/* 이미지는 가로축이든 세로축이든 원하는 사이즈를 주면 나머지가 맞게 크기가 만들어진다.  */
-/* img 중앙 정렬 margin: 상하는0 좌우 auto 주면 된다. */
+.container{
+    height:100vh;
+}
+.champions{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    max-width: 800px;
+    height: 70vh;
+    background-color: rgba(0,0,0, 0.6);
+    padding: 5px 20px 10px;
+    margin:  auto;
+    box-sizing: border-box;
+    border-radius: 2%;
+}    
+.champion{
+    width: 80px;
+    height: 80px;
+    margin:20px;
+    border: 3px ridge gray;
+    box-sizing: border-box;
+}
+.image{
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    position:relative;
+    box-sizing: border-box;
+    z-index: 1;
+}
+.border{
+    width: 82px;
+    box-sizing: border-box;
+    position:absolute;
+    top: -4px;
+    left:-4px;
+}
+/* 화면 왼쪽 위의 border들이 왜 겹쳐있는건지..? */
+.name{
+    color:rgb(180, 180, 180);
+    text-align: center;
+    margin: 8px auto;
+    font-size: 12px;
+}
+.champion:hover{
+    transition: .3s;
+    transform: scale(1.2);
+    border: 3px groove #c8aa6ec5;
+}
+.image:active{
+    transition: 0.5s;
+    transform: perspective(500px) rotateY(180deg);
+    filter: grayscale(80%);
+    border-radius: 50%;
+}
+/*champion border를 image보다 앞에 두는 법??:z-index 실패 */
+.champion:active{
+    transition: .5s;
+    border-radius: 50%;
+}
+.ready{
+    max-width: 200px;
+    margin: 0 auto;
+    position: relative;
+    top: -15px;
+}
+.ready img{
+    width: 100%;
+}
+.container .champions .champion:nth-child(1) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/01.png);
+}
+.container .champions .champion:nth-child(2) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/02.png);
+}
+.container .champions .champion:nth-child(3) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/03.png);
+}
+.container .champions .champion:nth-child(4) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/04.png);
+}
+.container .champions .champion:nth-child(5) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/05.png);
+}
+.container .champions .champion:nth-child(6) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/06.png);
+}
+.container .champions .champion:nth-child(7) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/07.png);
+}
+.container .champions .champion:nth-child(8) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/08.png);
+}
+.container .champions .champion:nth-child(9) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/09.png);
+}
+.container .champions .champion:nth-child(10) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/10.png);
+}
+.container .champions .champion:nth-child(11) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/11.png);
+}
+.container .champions .champion:nth-child(12) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/12.png);
+}
+.container .champions .champion:nth-child(13) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/13.png);
+}
+.container .champions .champion:nth-child(14) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/14.png);
+}
+.container .champions .champion:nth-child(15) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/15.png);
+}
+.container .champions .champion:nth-child(16) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/16.png);
+}
+.container .champions .champion:nth-child(17) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/17.png);
+}
+.container .champions .champion:nth-child(18) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/18.png);
+}
+.container .champions .champion:nth-child(19) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/19.png);
+}
+.container .champions .champion:nth-child(20) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/20.png);
+}
+.container .champions .champion:nth-child(21) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/21.png);
+}
+.container .champions .champion:nth-child(22) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/22.png);
+}
+.container .champions .champion:nth-child(23) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/23.png);
+}
+.container .champions .champion:nth-child(24) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/24.png);
+}
+.container .champions .champion:nth-child(25) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/25.png);
+}
+.container .champions .champion:nth-child(26) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/26.png);
+}
+.container .champions .champion:nth-child(27) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/27.png);
+}
+.container .champions .champion:nth-child(28) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/28.png);
+}
+.container .champions .champion:nth-child(29) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/29.png);
+}
+.container .champions .champion:nth-child(30) .image{
+    background-image:url(/KDT-Mission/mission_5th/champions/30.png);
+}
