@@ -36,6 +36,8 @@ body{
     margin:20px;
     border: 3px ridge gray;
     box-sizing: border-box;
+    position:relative;
+
 }
 .image{
     width:100%;
@@ -54,7 +56,6 @@ body{
     top: -4px;
     left:-4px;
 }
-/* 화면 왼쪽 위의 border들이 왜 겹쳐있는건지..? */
 .name{
     color:rgb(180, 180, 180);
     text-align: center;
