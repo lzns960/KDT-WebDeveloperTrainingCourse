@@ -1,23 +1,39 @@
 body{
     /* 글씨체추가+ 전체 배경색이나 글꼴색 추가*/
+    background-color: #d7d8d8;
 }
 
 
 
 /*header*/
 .header_div>header{
+    z-index: 3;
     position: fixed;
-    /*header size*/
-    width: 100vw;
+    width: 100%;
     height: 150px;
     box-sizing: border-box;
     /*header가 항상 맨 앞으로 오도록 z-index 주기*/
-    background-color: red;
-    /*그림자 삽입*/
-    box-shadow: 0 1px 5px rgb(175, 174, 174);
+    background-color: rgb(155, 0, 0);
+    box-shadow: 0 1px 5px rgb(155, 155, 155);
 
 }
 
+span.login{
+    font-size: 13px;
+    float: right;
+    position: relative;
+    top:5px;
+    color: rgb(201, 201, 201);
+    margin-right: 5px;
+    margin-top: 8px;
+    font-weight: 600;
+    
+
+
+}
+.header_div header>span:hover{
+    cursor: pointer;
+}
 
 
 .header_div div{
@@ -30,78 +46,115 @@ body{
     
 }
 .header_div img{
+    position:absolute;
+    left:calc(50% - 45px);/*추가*/
     height: 120px;
+    width: 90px;
     padding:15px 0;
+}
+.header_div img{
+    cursor: pointer;
 }
 
 /*aisde*/
 .aside_div{
-    display: inline-block;
-    position: absolute;
+   
+    position: fixed;
     top: 150px;
-    
-    background-color: yellow;
-
-    height: calc(100% - 150px);
+    background-color: white;
+    height: 100%;
     width: 200px;
     margin: 0;
+
+    box-shadow: 0.5px 1px 5px rgb(175, 174, 174);
+    z-index: 2;
 }
 .aside_div li{
     /* list 점 없애기*/
     list-style: none;
+    
 }
 
 .aside_div a{
     /*링크에 밑줄 없애기*/
     text-decoration: none;
+    color:black;
+    display:block;
 }
 
 /*스타일 추가하기*/
-.aside_div ul>li{
+.aside_div ul{
+    margin: 0;
+    padding: 0;
+}
+
+.aside_div ul>li>a{
     text-align: left;
     padding: 20px 30px;
 }
 
-
-
 .aside_div ul>li:nth-child(1){ /*home*/
     margin:20px 0;
-    text-align: center;
     font-weight: 600;
 }
-.aside_div ul>li:nth-child(2){ /*action*/
-    
-}
 
-.aside_div ul>li:nth-child(3){ /*fantasy*/
- }
-
-.aside_div ul>li:nth-child(4){ /*horror*/
-   
-}
-
-.aside_div ul>li:nth-child(5){ /*romance*/
-   
-}
 
 /*hover 시 스타일 적용하기*/
-.aside_div ul>li:nth-child(1):hover{
-   
+.aside_div ul>li:nth-child(2)>a:hover{
+    background-color:blue;
+    color: white;
+    
+}
+
+.aside_div ul>li:nth-child(3)>a:hover{
+    background-color: rgb(62, 255, 136);
+    
+}
+.aside_div ul>li:nth-child(4)>a:hover{
+    background-color: black;
+    color: red;
+    
+}
+.aside_div ul>li:nth-child(5)>a:hover{
+    background-color: hotpink;
+}
+/*추가*/
+section span.login{
+
+    display: block;
+    height: 20px;
+    margin: auto 0;
+}
+
+@media screen and (min-width:992px){
+
+    #nav_none{
+        display: none;
+    }
+
+    section span.login{
+
+        display: none;
+    }
 
 }
-.aside_div ul>li:nth-child(2):hover{
-    background-color: aqua;
+@media screen and (max-width:991px){
+    section.home_cinema{
+        padding-left:0;
+    }
+
+    header span.login{
+        display: none;
+    }
+
+    .aside_div{
+        display: none;
+    }
+
+    /*왼쪽 메뉴 없어져도 컨텐츠 중앙정렬 되도록*/
+
+
+  
     
-}
-.aside_div ul>li:nth-child(3):hover{
-    background-color: aqua;
-    
-}
-.aside_div ul>li:nth-child(4):hover{
-    background-color: aqua;
-    
-}
-.aside_div ul>li:nth-child(5):hover{
-    background-color: aqua;
-    
+
 }
