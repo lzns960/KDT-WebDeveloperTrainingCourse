@@ -1,0 +1,100 @@
+/* COMMON */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+body {
+    font-size: 16px;
+    background-color: #eeeafe;
+    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
+a {
+    text-decoration: none;
+    color: #222529;
+}
+
+/* HEADER */
+header:hover{
+    background-color: white;
+}
+
+header .inner {
+    position: relative;
+    width: 1000px;
+    height: 72px;
+    padding: 0 24px;
+    margin: 0 auto;
+    display: flex;
+}
+
+/* HEADER LOGO */
+header .inner .header__logo {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    width: 105px;
+    height: 32px;
+}
+
+header .inner .header__logo a img{
+    width: 100%;
+}
+
+/* HEADER MENU */
+header .inner .header__menu {
+    display: flex;
+    position: absolute;
+    margin: auto;
+    left: 130px;
+    top: 0;
+    bottom: 0;
+    height: 32px;
+}
+
+header .inner .header__menu li {
+    box-sizing: border-box;
+    padding: 8px 10.88px;
+    margin: 0 0 0 24px;
+}
+
+header .inner .header__menu li:hover {
+    padding: 8px 10.88px;
+    box-sizing: border-box;
+    background-color:#eaecef;
+    border-radius: 3px;
+}
+
+/* HEADER BTN */
+header .inner .header__btn {
+    position: absolute;
+    right: 0;
+    display: flex;
+    height:32px;
+    top: 0;
+    bottom:0;
+    margin: auto;
+}
+
+header .inner .header__btn .header__btn__login {
+    padding: 8px;
+    margin-right: 8px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 3px;
+
+}
+
+header .inner .header__btn .header__btn__login:hover{
+    text-decoration-line: underline;
+}
+header .inner .header__btn .header__btn__inquiry {
+    padding: 8px 16px;
+    font-size: 14px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    color: #ffffff;
+    background-color: #353a3f;
+    border-radius: 3px;
+    height: 32px;
+}
+header .inner .header__btn .header__btn__inquiry:hover {
+    background-color: #4a5056;
+}
