@@ -1,0 +1,83 @@
+/*텍스트 길어졌을 때 자동으로 잘리고 ... 처리 되게 하기*/
+
+section .content_container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+
+section .movie_content_container {
+    width: 700px;
+    height: 300px;
+    background-color: white;
+    margin: 20px;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 3px 5px rgb(175, 174, 174);
+   
+}
+
+section .movie_poster_img_container {
+    display: inline-block;
+    width: 199px;
+    height: 290px;
+    margin: 10px;
+    position: relative;
+    bottom: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+section .movie_poster_img_container>img:hover{
+    transition: 2s;
+    transform: scale(1.1);
+}
+
+section .movie_poster_img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+section .genre {
+    display: inline-block;
+    width: 100px;
+    height: 27px;
+    position: absolute;
+    top: 45px;
+    left: 130px;
+    text-align: center;
+    line-height: 27px;
+    font-size: 18px;
+    transform: rotate(90deg);
+    font-weight: 700;
+}
+
+section .movie_content_container>*:not(.movie_poster_img_container){
+    position: absolute;
+    margin: 20px;
+}
+
+section .movie_title {
+    top: 10px;
+    font-size: 24px;
+}
+
+section .movie_score {
+    top: 50px;
+}
+
+section .movie_description {
+    top: 90px;
+    width: 420px;
+    height: 210px;
+    line-height: 25px;
+}
+
+ section{
+    position:absolute;
+    left:200px;
+    top:150px;
+} 
