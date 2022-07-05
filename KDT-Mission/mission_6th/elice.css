@@ -65,7 +65,7 @@ header .inner .header__menu li:hover {
     border-radius: 3px;
 }
 
-header .inner .header__menu li a i:hover {
+header .inner .header__menu li:hover a i{
     transition: 0.8s;
     transform: rotate(180deg);
 }
