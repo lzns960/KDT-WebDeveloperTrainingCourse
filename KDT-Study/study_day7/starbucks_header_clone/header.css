@@ -1,0 +1,342 @@
+/* COMMON */
+body {
+    color:#333;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    font-family: 'Nanum Gothic', sans-serif;
+    height: 3000px;
+}
+
+.inner {
+    position: relative;
+    width: 1100px;
+    margin: 0 auto;
+}
+
+/* Fonts */
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;
+    font-size: 12px;
+}
+/* HEADER */
+header {
+    width: 100%;
+    position:fixed;
+    background-color: #f6f5ef;
+    border-bottom: 1px solid #c8c8c8;
+    top: 0;
+    z-index: 1;
+}
+
+header>.inner {
+    background-color: #f6f5ef;
+    height: 120px;
+}
+
+/* HEADER LOGO */
+header .inner .logo {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    height: 75px;
+}
+
+header .inner a.logo:hover {
+    text-decoration: underline;
+}
+
+header .inner .logo img {
+    display: block;
+    height: 75px;
+}
+
+/* HEADER SUBMENU */
+header .inner .sub_menu {
+    display: flex;
+    position: absolute; 
+    top: 10px;
+    right : 10px; 
+}
+
+header .inner .sub_menu .menu {
+    display: flex;
+}
+
+header .inner .sub_menu .menu li {
+    line-height: 32px;
+}
+
+header .inner .sub_menu .menu li:not(:last-child):after {
+    content: "|";
+    font-size: 12px;
+    color: #c8c8c8;
+}
+
+header .inner .sub_menu .menu li a {
+    font-size: 12px;
+    color: #656565;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+header .inner .sub_menu .menu li a:hover {
+    text-decoration: underline;
+}
+
+/* HEADER SEARCH */
+header .inner .search {
+    position: relative;
+}
+
+header .inner .search input {
+    width: 40px;
+    height: 34px;
+    transition: width 0.4s;
+    font-size: 16px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+header .inner .search input:focus {
+    width: 180px;
+    outline-color: green;
+}
+
+header .inner .search span {
+    position: absolute;
+    font-size: 24px;
+    height: 24px;
+    top: 0;
+    bottom: 0;
+    right: 3px;
+    margin: auto;
+}
+
+/* HEADER MAINMENU */
+header .inner .main_menu {
+    display: flex;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+header .inner .main_menu .item {}
+
+header .inner .main_menu .item:hover /*.item__name*/ {
+    background-color: #2c2a29;
+    color: #669900;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+header .inner .main_menu .item .item__name {
+    padding: 10px 20px 34px 20px;
+    font-size: 13px;
+}
+
+header .inner .main_menu .item .item__contents {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    display: none;
+}
+header .inner .main_menu .item:hover .item__contents {
+    display: block;
+}
+
+/* item__contents__menu */
+header .inner .main_menu .item .item__contents .item__contents__menu {
+    background-color: #2C2A29;
+    padding: 20px 0;
+    width: 100%;
+}
+
+header .main_menu .item .item__contents .item__contents__menu .inner {
+    display: flex;
+    flex-wrap: wrap;
+    left: 0;
+}
+
+header .main_menu .item .item__contents .item__contents__menu .inner>li {
+    width: 200px;    
+    padding-right: 20px;
+}
+
+header .main_menu .item .item__contents .item__contents__menu .inner>li>a {
+    display: block;
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+header .main_menu .item .item__contents .item__contents__menu .inner>li>a:hover {
+    text-decoration: underline;
+}
+
+header .main_menu .item .item__contents .item__contents__menu .inner>li>ul {
+}
+
+header .main_menu .item .item__contents .item__contents__menu .inner>li>ul>li {
+    margin: 5px 0;
+    font-size: 12px;
+    color: #999;
+}
+header .main_menu .item .item__contents .item__contents__menu .inner>li>ul>li:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* item__contents__additional */
+
+header .inner .main_menu .item .item__contents .item__contents__additional {
+    background-image: url("./images/main_menu_pattern.jpg");
+    width: 100%;
+    padding: 20px 0;
+}
+
+header .inner .main_menu .item .item__contents .item__contents__additional .inner {}
+
+header .inner .main_menu .item .item__contents .item__contents__additional .inner>a {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    color:#999;
+    text-decoration: none;
+}
+
+header .inner .main_menu .item .item__contents .item__contents__additional .inner>a:hover {
+    text-decoration: underline;
+
+}
+header .inner .main_menu .item .item__contents .item__contents__additional .inner>p {
+    font-size: 12px;
+    color:#669900;
+}
+
+/* BADGES */
+header .badges {
+    position:absolute;
+    top: 150px;
+    right: 20px;
+}
+
+header .badges .badge {}
+
+header .badges .badge>a {}
+
+header .badges .badge>a>img {}
+
+/* VISUAL */
+.visual {
+    background-image: url("../starbucks_header_clone/images/visual_bg.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 120px;
+    width: 100%;
+}
+
+.visual .inner {
+    position:relative;
+    height: 646px;
+}
+
+.visual .inner .slogan {
+    position:absolute;
+    top: 88px;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.visual .inner .slogan>img {
+
+}
+
+.visual .inner .slogan>.btn {
+    display: block;
+    border: 2px solid #1c3831;
+    border-radius: 5px;
+    width: 130px;
+    height: 38px;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 38px;
+    color:#1c3831;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 30px;
+    opacity: 0;
+    transition: .4s;
+}
+.visual .inner .slogan>.btn:hover {
+    background-color: #1c3831;
+    color: #fff;
+    text-decoration: underline;
+}
+.visual .inner .image {
+
+
+}
+
+.visual .inner .image.item_1 {
+    position: absolute;
+    width: 260px;
+    top: 88px;
+    right: 250px;
+    opacity: 0;
+    transition: .4s;
+}
+
+.visual .inner .image.item_2 {
+    position:absolute;
+    width: 590px;
+    top: 200px;
+    left: 30px;
+    opacity: 0;
+    transition: .4s;
+}
+
+.visual .inner .image.item_3 {
+    position: absolute;
+    width: 370px;
+    bottom: 50px;
+    right: -50px;
+    opacity: 0;
+    transition: .4s;
+}
+
+/* visual 애니메이션 효과 */
+.visual .inner:hover .slogan {
+    opacity: 1;
+}
+
+.visual .inner:hover .slogan .btn {
+    opacity: 1;
+    transition-delay: 1.6s;
+
+}
+
+.visual .inner:hover .image.item_1 {
+    opacity: 1;
+    transition-delay: .4s;
+}
+
+.visual .inner:hover .image.item_2 {
+    opacity: 1;
+    transition-delay: .8s;
+}
+
+.visual .inner:hover .image.item_3 {
+    opacity: 1;
+    transition-delay: 1.2s;
+}
+
