@@ -9,9 +9,6 @@ a {
     text-decoration: none;
     color: #222529;
 }
-i {
-    font-size: 16px;
-}
 
 /* HEADER */
 header:hover{
@@ -52,13 +49,13 @@ header .inner .header__menu {
     height: 32px;
 }
 
-header .inner .header__menu li {
+header .inner .header__menu>li {
     box-sizing: border-box;
     padding: 8px 10.88px;
     margin: 0 0 0 24px;
 }
 
-header .inner .header__menu li:hover {
+header .inner .header__menu>li:hover {
     padding: 8px 10.88px;
     box-sizing: border-box;
     background-color:#eaecef;
@@ -105,4 +102,72 @@ header .inner .header__btn .header__btn__question {
 }
 header .inner .header__btn .header__btn__question:hover {
     background-color: #4a5056;
+}
+
+/* HEADER MENU CONTENTS */
+header .inner .header__menu .header__menu__contents {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    /* display: none; */
+}
+
+/* header .inner .header__menu li:hover + .header__menu__contents {
+    display: block;
+} */
+
+header .inner .header__menu .header__menu__contents .header__menu__contents__menu {
+    background-color: orange;
+    width: 100%;
+    margin-top: 50px;
+}
+
+header .inner .header__menu .header__menu__contents>.inner {
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* position: absolute; */
+    padding: 20px;
+    width: 100%;
+}
+
+header .inner .header__menu .header__menu__contents .header__menu__contents__menu>.inner>li {
+}
+
+header .inner .header__menu .header__menu__contents .header__menu__contents__menu>.inner>li>a {
+    width: 100px;
+    height: 50px;
+
+}
+header .inner .header__menu .header__menu__contents .header__menu__contents__menu>.inner>li:nth-child(1) {
+    display: block;
+    width: 100%;
+}
+header .inner .header__menu .header__menu__contents .header__menu__contents__menu>.inner>li:nth-child(2) {
+    display: block;
+    width: 100%;
+
+}
+header .inner .header__menu .header__menu__contents .header__menu__contents__menu>.inner>li:nth-child(3) {
+    display: block;
+    width: 100%;
+
+}
+
+header .inner .header__menu .header__menu__contents .header__menu__contents__menu>.inner>li>ul {
+    display: block;
+}
+
+header .inner .header__menu .header__menu__contents .header__menu__contents__menu>.inner>li>ul>li {
+    width: 360px;
+    height: 90px;
+    border: 1px solid black;
+}
+
+header .inner .header__menu .header__menu__contents .header__menu__contents__menu>.inner>li>ul>li>a {
+
+}
+
+header .inner .header__menu .header__menu__contents .header__menu__contents__menu>.inner>li>ul>li>a>img {
+    width: 32px;
+    height: 40px;
 }
