@@ -49,20 +49,21 @@ header .inner .header__menu {
     height: 32px;
 }
 
-header .inner .header__menu>li {
+header .inner .header__menu .item {
     box-sizing: border-box;
     padding: 8px 10.88px;
     margin: 0 0 0 24px;
+    z-index: 1;
 }
 
-header .inner .header__menu>li:hover {
+header .inner .header__menu .item:hover {
     padding: 8px 10.88px;
     box-sizing: border-box;
     background-color:#eaecef;
     border-radius: 3px;
 }
 
-header .inner .header__menu li:hover a i{
+header .inner .header__menu .item:hover a i{
     transition: 0.8s;
     transform: rotate(180deg);
 }
@@ -104,70 +105,228 @@ header .inner .header__btn .header__btn__question:hover {
     background-color: #4a5056;
 }
 
-/* HEADER MENU CONTENTS */
-header .inner .header__menu .header__menu__contents {
+/* HEADER MENU__ITEM CONTENTS */
+header .inner .header__menu .item__contents {
     position: fixed;
-    width: 100%;
     left: 0;
-    /* display: none; */
-}
-
-/* header .inner .header__menu li:hover + .header__menu__contents {
-    display: block;
-} */
-
-header .inner .header__menu .header__menu__contents .header__menu__contents__menu {
-    background-color: orange;
+    margin-top:50px;
     width: 100%;
-    margin-top: 50px;
+
+    /* contents의 길이에 맞춰서 높이 자동적용은 어떻게 하는지..?  */
+    height: 100%;
+
+    background-color: white;
+    z-index: 1;
+    display: none;
 }
 
-header .inner .header__menu .header__menu__contents>.inner {
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    /* position: absolute; */
+/* hover 시 .item__contents 유지가 안되는 문제 ㅠㅠ  */
+header .inner .header__menu li:hover + .item__contents {
+    display: block;
+    cursor: pointer;
+} 
+
+header .inner .header__menu .item__contents .item__contents__menu {
+    position:absolute;
+    width: 1280px;
+    padding: 0 24px;
+    left: 50%;
+    transform: translateX(-50%);   
+}
+
+header .inner .header__menu .item__contents .item__contents__menu>.inner {
     padding: 20px;
     width: 100%;
 }
 
-header .inner .header__menu .header__menu__contents .header__menu__contents__menu>.inner>li {
-}
-
-header .inner .header__menu .header__menu__contents .header__menu__contents__menu>.inner>li>a {
-    width: 100px;
-    height: 50px;
-
-}
-header .inner .header__menu .header__menu__contents .header__menu__contents__menu>.inner>li:nth-child(1) {
+header .inner .header__menu .item__contents .item__contents__menu>.inner>li {
     display: block;
     width: 100%;
 }
-header .inner .header__menu .header__menu__contents .header__menu__contents__menu>.inner>li:nth-child(2) {
-    display: block;
-    width: 100%;
 
-}
-header .inner .header__menu .header__menu__contents .header__menu__contents__menu>.inner>li:nth-child(3) {
+header .inner .header__menu .item__contents .item__contents__menu>.inner>li>a {
     display: block;
-    width: 100%;
-
-}
-
-header .inner .header__menu .header__menu__contents .header__menu__contents__menu>.inner>li>ul {
-    display: block;
+    width: 400px;
+    height: 37px;
+    padding: 8px 16px;
+    font-size: 14px;
+    color:#222529;
 }
 
-header .inner .header__menu .header__menu__contents .header__menu__contents__menu>.inner>li>ul>li {
+header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul {
+
+}
+
+header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li {
     width: 360px;
     height: 90px;
-    border: 1px solid black;
+    border-radius: 3px;
 }
 
-header .inner .header__menu .header__menu__contents .header__menu__contents__menu>.inner>li>ul>li>a {
+header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li>a {
+    position: relative; 
+    top: 20px;
+    padding-left:10px;
+}
+header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li:hover>a>div>div>i{
+    display:inline;
 
 }
+header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li:hover {
+    background-color: #f8f9f2;
+}
 
-header .inner .header__menu .header__menu__contents .header__menu__contents__menu>.inner>li>ul>li>a>img {
-    width: 32px;
+header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li>a>img {
+    width: 40px;
     height: 40px;
 }
+
+header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li>a>div {
+    display: inline;
+    position:absolute;
+    left: 60px;
+    width: 304px;
+    font-size: 14px;
+}
+header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li>a>div>div {
+    height: 21px;
+}
+
+header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li>a>div>div>span{
+    color:#353a3f;
+}
+header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li>a>div>div>i{
+    display: none;
+}
+
+header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li>a>div>span {
+    display: block;
+    height: 42px;
+    color:#878295;
+}
+
+/* BADGES */
+header .badges {
+    position:absolute;
+    bottom: 50px;
+    right: 50px;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 40%;
+}
+
+header .badges .badge {}
+
+header .badges .badge>a {}
+
+header .badges .badge>a>img {
+    width: 48px;
+    height: 48px;
+    margin: 6px;
+}
+
+/* VISUAL */
+.visual {}
+
+.visual .inner {
+    position:relative;
+    top: 100px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.visual .inner div:nth-child(1) {
+    background: linear-gradient(to right,rgb(97,61,214), rgb(208,134,254));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    font-size:56px;
+    height: 75px;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.visual .inner div:nth-child(2) {
+    font-size: 40px;
+    font-weight: 800;
+    color:#353a3f;
+    height: 60px;
+    opacity: 0;
+    transition: .4s;
+}
+.visual .inner div:nth-child(3) {
+    font-size: 12px;
+    color:#AEB5BC;
+    height: 50px;
+    opacity: 0;
+    transition: .4s;
+}
+.visual .inner .btn {
+    border-radius: 50px;
+    padding: 4px;
+    background-color: #ffffff;
+    border:1px solid #7353ea;
+    opacity: 0;
+    transition: .4s;
+}
+.visual .inner .btn>input {
+    background-color: #ffffff;
+    padding: 12px 24px;
+    margin-right: 10px;
+    width: 250px;
+    height:48px;
+    box-sizing: border-box;
+    border-radius: 50px;
+    border-color: transparent;
+    outline-color: transparent;
+}
+
+.visual .inner .btn>a {
+    padding: 12px 16px;
+    font-size: 16px;
+    color:#ffffff;
+    background-color: #7353ea;
+    border-radius: 50px;
+    width:100px;
+}
+.visual .inner .btn>a:hover{
+    background-color: #7453eab7;
+}
+
+.visual .inner div:nth-child(5) {
+    margin-top:8px;
+    font-size: 12px;
+    color:#AEB5BC;
+    height: 18px;
+    opacity: 0;
+    transition: .4s;
+}
+
+/* visual 애니메이션 효과 */
+.visual .inner:hover div:nth-child(1) {
+    opacity: 1;
+}
+
+.visual .inner:hover div:nth-child(2) {
+    opacity: 1;
+    transition-delay: .4s;
+}
+
+.visual .inner:hover div:nth-child(3) {
+    opacity: 1;
+    transition-delay: 1.1s;
+}
+
+.visual .inner:hover div:nth-child(4) {
+    opacity: 1;
+    transition-delay: 0.8s;
+}
+
+.visual .inner:hover div:nth-child(5) {
+    opacity: 1;
+    transition-delay: 1.3s;
+}
+
