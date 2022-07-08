@@ -914,10 +914,13 @@ footer .inner .copyright .menu>li {
     border-right: 1px solid #393939;
 }
 
-
 footer .inner .copyright .menu>li>a {
     font-size: 12px;
     color: #999;
+    font-weight: bold;
+}
+footer .inner .copyright .menu>li>a:hover {
+    text-decoration: underline;
 }
 
 footer .inner .copyright .menu .privacy {
@@ -933,5 +936,3 @@ footer .inner .copyright .footer__btns a {
     margin: 10px 2px 0 3px;
     font-size: 12px;
 }
-
-
