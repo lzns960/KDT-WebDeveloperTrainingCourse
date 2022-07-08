@@ -1,0 +1,937 @@
+/* COMMON */
+body {
+    color:#333;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    font-family: 'Nanum Gothic', sans-serif;
+    height: 3000px;
+}
+
+.inner {
+    position: relative;
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.strong {
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 20px;
+    box-sizing: border-box; /* padding이 있으면 box-sizing 꼭 넣기 */
+    border: 2px solid currentColor; /* 상속받는 Color나 지정하는 Color로 자동 적용되는 속성*/
+    border-radius: 5px;
+}
+.btn--reverse {
+    background-color: #00704a;
+    border-color: #00704a;
+    color: white;
+}
+.btn--reverse:hover {
+    text-decoration: underline;
+}
+.btn--white {
+    border-color: white;
+    color: white;
+}
+
+.btn--white:hover {
+    text-decoration: underline;
+}
+
+.btn--light_green {
+    border-color: #00704a;
+    color: #00704a;
+    transition: 0.4s;
+}
+
+.btn--dark_green {
+    border-color: #1c3831;
+    color: #1c3831;
+    transition: 0.4s;
+}
+
+.btn--dark_green{
+    background-color: #1c3831;
+    color: white;
+    text-decoration: underline;
+}
+
+.btn--light_green:hover {
+    color: white;
+    background-color: #00704a;
+    text-decoration: underline; 
+    /* hover에 transition을 주면 갈 때만 시간이 먹는다. 올 때 갈 때 다 먹히게 하려면 요소에 transition을 줘야 한다. */
+}
+
+.btn--gold {
+    border-color: #b9813e;
+    color:#b9813e;
+    transition: 0.4s;
+}
+
+.btn--gold:hover {
+    background-color: #b9813e;
+    color: white;
+    text-decoration: underline;
+}
+
+.btn--black{
+    border-color:#111111;
+    color: #111111;
+}
+
+.btn--black:hover {
+    background-color:#111111;
+    color: white;
+    text-decoration: underline;
+}
+/* Fonts */
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;
+    font-size: 12px;
+}
+
+/* HEADER */
+header {
+    width: 100%;
+    position:fixed;
+    background-color: #f6f5ef;
+    border-bottom: 1px solid #c8c8c8;
+    top: 0;
+    z-index: 1;
+}
+
+header>.inner {
+    background-color: #f6f5ef;
+    height: 120px;
+}
+
+/* HEADER LOGO */
+header .inner .logo {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    height: 75px;
+}
+
+header .inner a.logo:hover {
+    text-decoration: underline;
+}
+
+header .inner .logo img {
+    display: block;
+    height: 75px;
+}
+
+/* HEADER SUBMENU */
+header .inner .sub_menu {
+    display: flex;
+    position: absolute; 
+    top: 10px;
+    right : 10px; 
+}
+
+header .inner .sub_menu .menu {
+    display: flex;
+}
+
+header .inner .sub_menu .menu li {
+    line-height: 32px;
+}
+
+header .inner .sub_menu .menu li:not(:last-child):after {
+    content: "|";
+    font-size: 12px;
+    color: #c8c8c8;
+}
+
+header .inner .sub_menu .menu li a {
+    font-size: 12px;
+    color: #656565;
+    padding: 10px 15px;
+}
+
+header .inner .sub_menu .menu li a:hover {
+    text-decoration: underline;
+}
+
+/* HEADER SEARCH */
+header .inner .search {
+    position: relative;
+}
+
+header .inner .search input {
+    width: 40px;
+    height: 34px;
+    transition: width 0.4s;
+    font-size: 16px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+header .inner .search input:focus {
+    width: 180px;
+    outline-color: green;
+}
+
+header .inner .search span {
+    position: absolute;
+    font-size: 24px;
+    height: 24px;
+    top: 0;
+    bottom: 0;
+    right: 3px;
+    margin: auto;
+}
+
+/* HEADER MAINMENU */
+header .inner .main_menu {
+    display: flex;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+header .inner .main_menu .item {}
+
+header .inner .main_menu .item:hover /*.item__name*/ {
+    background-color: #2c2a29;
+    color: #669900;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+header .inner .main_menu .item .item__name {
+    padding: 10px 20px 34px 20px;
+    font-size: 13px;
+}
+
+header .inner .main_menu .item .item__contents {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    display: none;
+}
+header .inner .main_menu .item:hover .item__contents {
+    display: block;
+}
+
+/* item__contents__menu */
+header .inner .main_menu .item .item__contents .item__contents__menu {
+    background-color: #2C2A29;
+    padding: 20px 0;
+    width: 100%;
+}
+
+header .main_menu .item .item__contents .item__contents__menu .inner {
+    display: flex;
+    flex-wrap: wrap;
+    left: 0;
+}
+
+header .main_menu .item .item__contents .item__contents__menu .inner>li {
+    width: 200px;    
+    padding-right: 20px;
+}
+
+header .main_menu .item .item__contents .item__contents__menu .inner>li>a {
+    display: block;
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+}
+header .main_menu .item .item__contents .item__contents__menu .inner>li>a:hover {
+    text-decoration: underline;
+}
+
+header .main_menu .item .item__contents .item__contents__menu .inner>li>ul {}
+
+header .main_menu .item .item__contents .item__contents__menu .inner>li>ul>li {
+    margin: 5px 0;
+    font-size: 12px;
+    color: #999;
+}
+header .main_menu .item .item__contents .item__contents__menu .inner>li>ul>li:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* item__contents__additional */
+
+header .inner .main_menu .item .item__contents .item__contents__additional {
+    background-image: url("./images/main_menu_pattern.jpg");
+    width: 100%;
+    padding: 20px 0;
+}
+
+header .inner .main_menu .item .item__contents .item__contents__additional .inner {}
+
+header .inner .main_menu .item .item__contents .item__contents__additional .inner>a {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    color:#999;
+}
+
+header .inner .main_menu .item .item__contents .item__contents__additional .inner>a:hover {
+    text-decoration: underline;
+}
+header .inner .main_menu .item .item__contents .item__contents__additional .inner>p {
+    font-size: 12px;
+    color:#669900;
+}
+
+/* BADGES */
+header .badges {
+    position:absolute;
+    top: 150px;
+    right: 20px;
+}
+
+header .badges .badge {}
+
+header .badges .badge>a {}
+
+header .badges .badge>a>img {}
+
+/* VISUAL */
+.visual {
+    background-image: url("../starbucks_main_clone/images/visual_bg.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 120px;
+    width: 100%;
+}
+
+.visual .inner {
+    position:relative;
+    height: 646px;
+}
+
+.visual .inner .slogan {
+    position:absolute;
+    top: 88px;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.visual .inner .slogan>img {}
+
+.visual .inner .slogan>.btn {
+    display: block;
+    width: 130px;
+    height: 38px;
+    margin-top: 30px;
+    opacity: 0;
+    transition: .4s;
+}
+.visual .inner .slogan>.btn:hover {
+    background-color: #1c3831;
+    color: #fff;
+    text-decoration: underline;
+}
+.visual .inner .image {}
+
+.visual .inner .image.item_1 {
+    position: absolute;
+    width: 260px;
+    top: 88px;
+    right: 250px;
+    opacity: 0;
+    transition: .4s;
+}
+
+.visual .inner .image.item_2 {
+    position:absolute;
+    width: 590px;
+    top: 200px;
+    left: 30px;
+    opacity: 0;
+    transition: .4s;
+}
+
+.visual .inner .image.item_3 {
+    position: absolute;
+    width: 370px;
+    bottom: 50px;
+    right: -50px;
+    opacity: 0;
+    transition: .4s;
+}
+
+/* visual 애니메이션 효과 */
+.visual .inner:hover .slogan {
+    opacity: 1;
+}
+
+.visual .inner:hover .slogan .btn {
+    opacity: 1;
+    transition-delay: 1.6s;
+}
+
+.visual .inner:hover .image.item_1 {
+    opacity: 1;
+    transition-delay: .4s;
+}
+
+.visual .inner:hover .image.item_2 {
+    opacity: 1;
+    transition-delay: .8s;
+}
+
+.visual .inner:hover .image.item_3 {
+    opacity: 1;
+    transition-delay: 1.2s;
+}
+
+/* NOTICE */
+.notice {}
+
+.notice .notice_line {
+    position: relative;
+}
+
+.notice .notice_line .bg_left {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #111111;
+}
+
+.notice .notice_line .bg_right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #f6f5ef;
+}
+
+.notice .notice_line .inner {
+    height: 62px;
+    display: flex;/* inner left right를 위한 flex */
+}
+
+.notice .notice_line .inner .inner__left {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-color: #111111;
+    display: flex; /* h1,a태그 등을 가로로 만들기 위함 */
+    align-items: center; /* 수직중앙정렬 */
+    color:white;
+}
+
+.notice .notice_line .inner .inner__left h1 {
+    position: absolute; /* flex으로 가로 정렬도 가능하지만 absolute도 가능 absolute로 되면 문서흐름에서 벗어남 = 겹쳐보임 */
+    left: 0; /* inner의 왼쪽으로 붙게 하는 것 */
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.notice .notice_line .inner .inner__left .swiper_container {
+    position: absolute;
+    left: 80px;
+    flex-grow: 1; /* 공지사항을 제외한 나머지 공간을 차지하게 하기 위함 */
+    font-size: 14px;
+}
+
+.notice .notice_line .inner .inner__left a {
+    position: absolute; /* a 태그가 span 태그를 감싸고 있으니까 a 태그로 위치를 조정 */
+    right: 20px; 
+    color: white;
+}
+
+.notice .notice_line .inner .inner__left a span {
+    font-size: 36px; /* span태그의 크기 조절은 font-size로 한다.
+    span태그는 글자를 위한 inline이고, 기본은 baseline이다. 
+    수직 정렬을 하고 싶으면 vertical-align을 bottom으로 잡아서 내려야한다. */
+    vertical-align: bottom;
+}
+
+.notice .notice_line .inner .inner__right {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-color: #f6f5ef;
+    display: flex; /* h1,a태그 등을 가로로 만들기 위함 */
+    align-items: center; /* 수직중앙정렬 */
+    color:#111111;
+}
+
+.notice .notice_line .inner .inner__right h1 {
+    position: absolute;
+    right: 230px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.notice .notice_line .inner .inner__right a {
+    position: absolute;
+    right: 100px;
+    color: #111111; /* 링크 태그이기 때문에 색을 따로 줘야한다. 위에서 상속받지 않음*/
+}
+
+.notice .notice_line .inner .inner__right a span {
+    font-size: 36px;
+    vertical-align: bottom;
+}
+
+/* REWARDS */
+.rewards {
+    background-color: #1e3932;
+}
+
+.rewards .inner {
+    padding: 30px 0 40px 0;
+    display: flex; /* 로고와 p 태그들을 가로로 하기 위함*/
+    gap: 20px;  /* flex 속성값 중에 아이템들의 사이를 떨어뜨리기 위함*/
+}
+
+.rewards .inner>a {}
+
+.rewards .inner>a>img {
+    width: 176px; /* 이미지 태그 한쪽 축만 입력하면 나머지 축이 비율에 맞춰 크기 조정된다.*/
+    display: block; /* 아래에 살짝 뜨는 것이 사라진다.*/
+}
+
+.rewards .inner .rewards__items {
+    flex-grow: 1; /* 로고와 gap의 공간을 제외한 나머지 공간(=inner 남는 공간)만큼을 먹게 한다. */
+}
+
+.rewards .inner .rewards__items .rewards__items__register {
+    position: relative;
+    padding-bottom: 12px;
+    /* border로 제일 얇게하는 것은 1px가 한계 더 얇게 하고싶으면 box-shadw 이용 */
+    box-shadow: 0 0.5px #c8c8c8;
+}
+
+.rewards .inner .rewards__items .rewards__items__register p {
+    display: block;  /* margin과 padding의 값을 잘 먹게 하기 위함*/
+    font-size: 17px;
+    color: white;
+}
+
+.rewards .inner .rewards__items .rewards__items__register p.subject {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.rewards .inner .rewards__items .rewards__items__register .buttons {
+    position: absolute;
+    right: 0;
+    bottom: 12px;
+}
+
+.rewards .inner .rewards__items .rewards__items__card {
+    position: relative;
+    padding-top: 20px;
+}
+
+.rewards .inner .rewards__items .rewards__items__card p {
+    font-size: 14px;
+    color: white;
+}
+
+.rewards .inner .rewards__items .rewards__items__card .buttons {
+    position: absolute;
+    right: 0;
+    top: 20px; /*rewards__items__card에 준 padding 값만큼 내려와야 높이가 맞음 */ 
+}
+
+/* PERU */
+.peru {
+    position: relative; /* bg 호랑이와 새의 위치 지정하기 위함*/
+    background-image: url(../starbucks_main_clone/images/peru_bg.jpg);
+    height: 570px;
+    overflow: hidden; /* 짤리는 것이 좋으니 overflow hideen을 쓰기! */
+}
+/* div 선언보다는 가상요소 선택자를 선언해서 bg 호랑이 왼쪽 새 오른쪽에 넣기 */
+.peru::before {
+    content: ""; /* content가 없으면 가상요소 선택자가 제대로 작동하지 않음 빈칸 넣어서 작동하게 하기*/
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    background-image: url(../starbucks_main_clone/images/peru_bg_left.png);
+    background-size: cover; /* cover는 긴 축에 맞춰 늘린다. contain은 짧은 축에 맞춤 */
+    background-repeat: no-repeat; 
+    width: 330px;
+    height: 330px;
+}
+
+.peru::after {
+    content: ""; 
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: block;
+    background-image: url(../starbucks_main_clone/images/peru_bg_right.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 320px;
+    height: 320px;
+}
+.peru .inner {
+    height: 570px;
+} /* COMMON으로 이미 position:relative 줬기때문에 그냥 넘어가는 것 */
+
+.peru .inner .img_product {
+    display: block;
+    position: absolute;
+    width: 290px;
+    top: 110px;
+    left: 290px;
+    transform: translate(-400px, 0);
+    transition: 2s;
+    opacity: 0;
+}
+/* 처음에 기본위치를 정하고, 그곳에 trnasform을 줘서 강제로 옮겨놓은 다음에 hover 때 0으로 주면 편하다 */
+.peru .inner:hover .img_product {
+    transform: translate(0px, 0);
+    opacity: 1;
+}
+
+.peru .inner .peru__contents {
+    position: absolute;
+    top: 200px;
+    right: 130px;
+    transform: translate(500px, 0);
+    transition: 2s;
+    opacity: 0;
+}
+
+.peru .inner:hover.peru__contents {
+    transform: translate(0px, 0);
+    opacity: 1;
+}
+.peru .inner .peru__contents>img {
+    width: 427px;
+}
+
+.peru .inner .peru__contents .btn {
+    display: block;
+    width: 125px;
+    margin-top: 50px;
+}
+
+/* INDONESIA */
+.indonesia {
+    position: relative;
+    background-image: url(../starbucks_main_clone/images/indonesia_bg.jpg);
+    height: 400px;
+    overflow: hidden;
+}
+.indonesia::before {
+    content:"";
+    position: absolute;
+    left: -200px;
+    bottom: 0;
+    display: block;
+    background-image: url(../starbucks_main_clone/images/indonesia_bg_left.png);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    width: 373px;
+    height: 277px;
+}
+
+.indonesia::after {
+    content:"";
+    position: absolute;
+    right: -300px;
+    bottom: 0;
+    display: block;
+    background-image: url(../starbucks_main_clone/images/indonesia_bg_right.png);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    width:563px;
+    height:305px;
+}
+
+.indonesia .inner {}
+
+.indonesia .inner .indonesia__img {
+    position:absolute;
+    left: -350px;
+}
+
+.indonesia .inner .indonesia__title {
+    position: absolute;
+    top: 120px;
+    width: 496px;
+    left: 100px;
+}
+
+.indonesia .inner .btn.btn--gold {
+    position:absolute;
+    display: block;
+    width: 125px;
+    top: 270px;
+    left: 350px;
+}
+
+/* FAVORITE */
+.favorite {
+    position: relative;
+    background-image: url(../starbucks_main_clone/images/fav_bg.jpg);
+    background-attachment: fixed; /* 배경 고정시키기 */
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    height: 800px;
+}
+
+.favorite .inner {
+    height: 800px; /* hover 효과를 inner 자체에 마우스만 가도 걸리게 하기 */
+}
+
+.favorite .inner .fav_title_1 {
+    position: absolute;
+    width: 220px;
+    top: 110px;
+    left: 290px;
+    transition: 2s;
+    transform: translate(-600px, 0);
+    opacity: 0;
+}
+
+.favorite .inner .fav_title_2 {
+    position: absolute;
+    width: 362px;
+    top: 300px;
+    left: 150px;
+    transition: 2.5s;
+    transform: translate(-600px, 0);
+    opacity: 0;
+}
+.favorite .inner:hover .fav_title_1,
+.favorite .inner:hover .fav_title_2 {
+    transform: translate(0px, 0);
+    opacity: 1;
+}
+
+.favorite .inner .fav_img {
+    position: absolute;
+    width: 672px;
+    top: 50px;
+    right: -100px;
+}
+
+.favorite .inner .btn.btn--white {
+    position: absolute;
+    top: 500px;
+    left: 390px;
+    opacity: 0;
+}
+
+.favorite .inner:hover .btn.btn--white {
+    opacity: 1;
+    transition: 4s;
+}
+.favorite .inner .btn.btn--white:hover {
+    background-color: #fff;
+    color: #111111;
+}
+
+/* MAGAZINE */
+.magazine {
+    position: relative;
+    background-image: url(../starbucks_main_clone/images/magazine_bg.png);
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-position: center;
+    height: 400px;
+}
+
+.magazine .inner {
+    height: 400px;
+}
+
+.magazine .inner .magazine_title {
+    position: absolute;
+    top: 120px;
+}
+
+.magazine .inner .magazine_img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    transition: 2s;
+}
+
+.magazine .inner:hover .magazine_img {
+    opacity: 1;
+}
+
+.magazine .inner .btn.btn--black {
+    position: absolute;
+    top: 250px;
+    left: 300px;
+}
+
+/* STORE */
+.store {
+    position: relative;
+    background-image: url(../starbucks_main_clone/images/store_bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    height: 400px;
+}
+
+.store .inner {
+    height: 400px;
+}
+
+.store .inner>* {
+    position: absolute;
+}
+
+.store .inner .store_img4 {
+    right:0;
+    bottom: 0;
+}
+
+.store .inner .store_img3 {
+    left: 300px;
+    top: -50px;
+    width: 343px;
+}
+.store .inner .store_img2 {
+    width: 366px;
+}
+.store .inner .store_img1 {
+    width: 228px;
+    top: 140px;
+    left: 230px;
+}
+.store .inner .store_title_1 {
+    width: 385px;
+    right: 180px;
+    top: 110px;
+    transition: 2s;
+    transform: translate(500px, 0);
+    opacity: 0;
+}
+.store .inner .store_title_2 {
+    width: 366px;
+    right: 200px;
+    top: 180px;
+    transition: 2.5s;
+    transform: translate(500px, 0);
+    opacity: 0;
+}
+.store .inner .btn.btn--black {
+    top: 270px;
+    right: 450px;
+    transition: 3s;
+    transform: translate(500px, 0);
+    opacity: 0;
+}
+.store .inner:hover .store_title_1,
+.store .inner:hover .store_title_2,
+.store .inner:hover .btn.btn--black {
+    transform: translate(0px, 0);
+    opacity: 1;
+}
+
+/* FOOTER */
+footer {
+    background-color: #2c2a29;
+    height: 600px;
+    padding: 30px 0px;
+}
+
+footer .inner {}
+
+footer .inner .footer_logo {
+    position: absolute;
+    right:0;
+}
+
+footer .inner .footer_menus {
+    display: flex;
+}
+
+footer .inner .footer_menus>ul {
+    width: 220px;
+    height: 184px;
+    margin-bottom: 30px;
+}
+
+footer .inner .footer_menus>ul .footer_menu_ttl {
+    width: 220px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+footer .inner .footer_menus>ul>li>a {
+    color: #ffffff;
+}
+
+footer .inner .footer_menus>ul>li>a:hover {
+    text-decoration: underline;
+}
+
+
+footer .inner .footer_menus>ul li:not(.footer_menu_ttl) {
+    font-size: 12px;
+    height: 24px;
+}
+
+footer .inner .copyright {
+}
+
+footer .inner .copyright .menu {
+    display: flex;
+    justify-content: center;
+}
+
+footer .inner .copyright .menu>li {    
+    padding: 0 10px;
+    border-right: 1px solid #393939;
+}
+
+
+footer .inner .copyright .menu>li>a {
+    font-size: 12px;
+    color: #999;
+}
+
+footer .inner .copyright .menu .privacy {
+    color: #00b050;
+    font-weight: bold;
+}
+
+footer .inner .copyright .footer__btns {
+    display: flex;
+    justify-content: center;
+}
+footer .inner .copyright .footer__btns a {
+    margin: 10px 2px 0 3px;
+    font-size: 12px;
+}
+
+

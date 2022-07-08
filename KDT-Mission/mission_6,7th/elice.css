@@ -111,7 +111,7 @@ header .inner .header__menu .item__contents {
     background-color: white;
     left: 0;
     width: 100%;
-    top: 51px;
+    top:45px;
     z-index: 2;
     display: none;
 }
