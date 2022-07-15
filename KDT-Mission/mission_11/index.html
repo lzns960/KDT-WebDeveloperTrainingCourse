@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script defer src="./main.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>😎 오늘의 할일 목록 😎</h1>
+    </div>
+    <div class="content">
+        <form id ="todo-form">
+            <div>
+                <label for="todo-input">할일</label>
+                <!-- input을 라벨링해준다. for 속성에 input이 가진 아이디를 지정해주면 label이 input과 엮이게 된다. 연결이 돼서 input태그로 포커스가 옮겨가는 효과가 있다.   -->
+                <input type="text" id = "todo-input" placeholder="할일을 입력하세요.">
+            </div>
+            <button class="submit">추가</button>
+        </form>
+        <p id = "msg">오늘 할 일을 입력하세요!!!</p>
+        <ul id="todo-list">
+            <li class="item">끝내주게 숨쉬기</li>
+            <li class="item">간지나게 자기</li>
+            <li class="item">작살나게 밥먹기</li>
+        </ul>
+    </div>
+    <img src="./hand-with-pencil-social-removebg-preview .png" alt="페북 연필 쥔 손">
+</body>
+</html>
