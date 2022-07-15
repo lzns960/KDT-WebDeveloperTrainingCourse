@@ -6,4 +6,4 @@ https://www.youtube.com/watch?v=2FD4mW6xCJM
 아무런 값을 입력 하지 않은 상태에서 출력되는 안내 메세지는 굳이 구현을 하시지 않으셔도 됩니다!
 
 
-![image](https://user-images.githubusercontent.com/78632299/179273242-0fcaf816-8afc-4c5c-a7cb-23ef8d17b94b.png)
+![image](https://user-images.githubusercontent.com/78632299/179274354-870ae583-7342-45f0-be19-b356fcbba607.png)

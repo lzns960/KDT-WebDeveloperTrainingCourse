@@ -12,7 +12,8 @@
 }
 body{
     background-image: url(https://img.freepik.com/free-photo/white-crumpled-paper-texture-white-background-wallpaper_114106-1208.jpg);
-
+    background-size: cover;
+    background-repeat: repeat;
 }
 .header {
     background-color: #3b5999;
