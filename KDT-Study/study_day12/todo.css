@@ -1,0 +1,28 @@
+* {
+    margin:0;
+}
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+header {
+    background-color: hotpink;
+    height: 60px;
+}
+h1 {
+    text-align: center;
+    line-height: 60px;
+}
+
+/* CONTENTS */
+.contents {
+    display: flex;
+    flex-direction: column; /* 주축방향이 수직이면 가로 중앙정렬하고 싶은 것이니 align-items를 쓴다.  */
+    align-items: center;
+}
+.input-part {
+    padding: 30px 0px;
+}
+.list-part .todo-part {
+    text-align: center;
+}
