@@ -12,8 +12,6 @@ const dateEl = document.querySelector("#date");
 const btn = document.querySelector("button");
 const contentEl = document.querySelector("#content");
 
-let target = null;
-
 buttonEl.addEventListener("click", function(e){
     // let dateJs = e.target.innerText;
     // dateEl.value = `2022년 7월 ${dateJs} 일`;
@@ -34,6 +32,8 @@ $("button").on("click",function(e){
 // taget이 바껴도  안바뀐다.. 
 */
 // js
+let target = null;
+
 function writeSchedule(){
     const divEl = document.createElement("div");
     divEl.textContent = contentEl.value;
