@@ -24,7 +24,6 @@ function writeSchedule(){
 
 //작성 내용을 클릭하면 삭제 되는 기능 추가!
 divEl.addEventListener("click",function(e){
-    console.log(e.target.tagName);
     if(e.target.tagName === "DIV"){
         e.target.remove();
     }
