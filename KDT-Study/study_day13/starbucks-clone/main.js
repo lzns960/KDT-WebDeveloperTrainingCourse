@@ -31,7 +31,7 @@ const swiperPromotion = new Swiper(".promotion .swiper", {
     centeredSlides: true, // 슬라이드 센터 여부
     loop: true, // 루프 여브
     autoplay: {// 자동 재생, 변경 시간 설정
-        delay: 5000,
+        delay: 1000,
         disableOnInteraction: false, //클릭하고 왔다갔다하는 액션을 끄게하는 것 (원래 swiper의 기능)
     },
     pagination: {
@@ -43,3 +43,37 @@ const swiperPromotion = new Swiper(".promotion .swiper", {
         nextEl: ".promotion .swiper-button-next",
     } 
 });
+
+//SWIPER PROMOTION CONTROL AUTOPLAY 
+function controlAutoplay() {
+    if(swiperPromotion.autoplay.running === ture) {
+        //autoplay가 실행중인지 아닌지 true 돌아가는 거, false 멈춘 것  컨디션에 따라 autoplay를 걸어준다. 
+        swiperPromotion.autoplay.stop();
+    } else {
+        swiperPromotion.autoplay.start();
+    }
+}
+
+//TOGGLE PROMOTION 
+const promotionEl = document.querySelector(".promotion");
+const promotionToggleBtn  = document.querySelector(".toggle-promotion");
+const promotionToggleIcon = document.querySelector(".toggle-promotion span");
+
+promotionToggleBtn.addEventListener("click", function(){
+    if(promotionEl.classList.contains("hide")){
+        promotionEl.classList.remove("hide");
+    }else {
+        promotionEl.classList.add("hide");
+    }
+
+    if(promotionToggleIcon.style.transform === "rotate(180deg)") {
+        promotionToggleIcon.style.transform = "rotate(0deg)";
+    }else {
+        promotionToggleIcon.style.transform = "rotate(180deg)";
+    }
+})
+//SCROLL ANIMATION 
+window.addEventListener("scroll",function(){
+    scrollYpos= window.scrollY;
+    console.log(scrollYpos);
+})

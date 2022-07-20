@@ -492,11 +492,20 @@ header .badges .badge {
   font-size: 36px;
   vertical-align: bottom;
 }
+
+.notice .inner .inner__right  .toggle-promotion span {
+  transition: 0.5s;
+}
 /* PROMOTION */
 .notice .promotion {
   position: relative;
   height: 659px;
   background-color: #f6f5ef;
+  overflow: hidden;
+  transition: height 0.4s;
+}
+.notice .promotion.hide {
+  height: 0px; 
 }
 
 .notice .promotion .swiper {

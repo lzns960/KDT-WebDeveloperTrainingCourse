@@ -450,18 +450,23 @@
                             <div class="swiper-slide">스타벅스 e-Gift Card 구매 가능 금액 안내</div>
                         </div>
                     </div>
-                    <a href="#"><span class="material-symbols-outlined">add_circle</span></a>
+                    <a href="javascript:controlAutoplay();">
+                        <!-- a 태그가 페이지 새로고침을 하는 것을 막으며 javascript의 함수를 실행시키기 위함 -->
+                        <span class="material-symbols-outlined">add_circle</span></a>
                 </div>
                 <div class="inner__right">
                     <h1>스타벅스 프로모션</h1>
-                    <a href="#"><span class="material-symbols-outlined">expand_circle_down</span></a>
+                    <a href="javascirpt:void(0);" class = "toggle-promotion"> 
+                        <!-- 토글버튼을 눌렀을 때 페이지 새로고침을 못하게 하기 위함 "javascirpt:void(0);" -->
+                        <span class="material-symbols-outlined promotionToggleIcon">expand_circle_down</span>
+                    </a>
                 </div>
             </div>
         </div>
 
 
         <!-- PROMOTION -->
-        <div class="promotion">
+        <div class="promotion hide">
             <div class="swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
