@@ -72,8 +72,19 @@ promotionToggleBtn.addEventListener("click", function(){
         promotionToggleIcon.style.transform = "rotate(180deg)";
     }
 })
+
+const peruAnimate = document.querySelector(".peru");
+const visualAnimate = document.querySelector(".visual .inner");
 //SCROLL ANIMATION 
 window.addEventListener("scroll",function(){
     scrollYpos= window.scrollY;
     console.log(scrollYpos);
+
+    if (scrollYpos > 430) {
+        peruAnimate.classList.add("animate");
+    }
 })
+
+window.onload = () =>  {
+    visualAnimate.classList.add("animate");
+}

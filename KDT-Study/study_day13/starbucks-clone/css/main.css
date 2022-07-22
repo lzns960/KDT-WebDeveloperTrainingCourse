@@ -369,30 +369,30 @@ header .badges .badge {
   opacity: 0;
 }
 
-.visual .inner:hover .slogan {
+.visual .inner.animate .slogan {
   transition: 0.4s;
   opacity: 1;
 }
 
-.visual .inner:hover .item_1.image {
+.visual .inner.animate.item_1.image {
   transition: 0.4s;
   opacity: 1;
   transition-delay: 0.4s;
 }
 
-.visual .inner:hover .item_2.image {
+.visual .inner.animate .item_2.image {
   transition: 0.4s;
   opacity: 1;
   transition-delay: 0.8s;
 }
 
-.visual .inner:hover .item_3.image {
+.visual .inner.animate .item_3.image {
   transition: 0.3s;
   opacity: 1;
   transition-delay: 1.2s;
 }
 
-.visual .inner:hover .slogan .btn {
+.visual .inner.animate .slogan .btn {
   transition: 0.4s;
   opacity: 1;
   transition-delay: 1.6s;
@@ -701,7 +701,7 @@ header .badges .badge {
   opacity: 0;
 }
 
-.peru:hover .inner .img_product {
+.peru.animate .inner .img_product {
   transform: translate(0px, 0);
   opacity: 1;
   transition: 2.5s;
