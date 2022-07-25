@@ -1,0 +1,185 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?fonts.googleapis.com/css2?family=Patrick+Hand&family=Permanent+Marker&display=swap');
+/*font-family: 'Patrick Hand', cursive;
+font-family: 'Permanent Marker', cursive;*/
+
+/* RESET */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+ul,ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+/* HEADER */
+header {
+    position: relative;
+    display: flex;
+    width: 100%; /* 헤더의 넓이는 body와 같아야 한다 */
+    border-bottom: 1px solid #999;
+    justify-content: space-between;
+    padding: 5vh 5vw;
+    align-items: center;
+    z-index: 2;
+    background-color: rgba(153, 153, 153, 0.304);
+}
+
+header #snb {
+    display: none; /*공간까지 사라지기 때문에 flex가 인식 못한다.(opacity랑 다름)*/
+}
+
+header h1 a {
+    font: bold 24px/1 'Patrick Hand';
+    color: rgba(255, 255, 255, 0.774);
+    letter-spacing: 2px ;
+}
+
+header h1 a img{
+    width: 10vh;
+}
+
+/* GNB */
+header #gnb {
+    display: flex;
+}
+
+header #gnb li {
+    margin: 0px 20px;
+}
+
+header #gnb li a {
+    font: 16px/1 'Patrick Hand';
+    color: #cecece;
+    letter-spacing: 1px;
+}
+
+/* SNS */
+header .sns {
+    display: flex;
+}
+
+header .sns li{
+    margin: 0px 10px;
+}
+
+header .sns li a {
+    font: 20px;
+    color:rgba(255, 255, 255, 0.774);
+}
+
+/* VIDEO */
+figure {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+figure video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+figure .text {
+    position: absolute;
+    left: 6vh;
+    top: 60%;
+    transform: translate(0, -50%);
+}
+
+figure .text p {
+    font: normal 5vw/6vw 'Permanent Marker' ;
+    color: rgb(218,218,218);
+}
+
+figure .text ul {
+    display: flex;
+    margin-top: 20px;
+}
+
+figure .text ul li {
+    margin: 0px 20px;
+}
+figure .text ul li i {
+    font-size: 15px;
+    color:rgba(255, 255, 255, 0.774);
+    margin-right: 10px;
+}
+figure .text ul li strong {
+    font: 14px/1 'Patrick Hand';
+    color:rgba(255, 255, 255, 0.774);
+    letter-spacing: 1px;
+}
+
+/* FOOTER */
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font: 12px/1 "arial";
+    color: #dadada;
+    letter-spacing: 2px;
+    text-align: center;
+    padding: 5vh 5vw;
+    z-index: 2;
+}
+
+/* MOBILE */
+@media screen and (max-width: 800px){
+    header #gnb {
+        display: none;
+    }
+    header .sns {
+        display: none;
+    }
+    header #snb {
+        display: block;
+    }
+    header #snb .btn_menu {
+        color: #dadada;
+    }
+
+    header #snb .sub_menu {
+        position: absolute;
+        right: 5vw;
+        padding: 10px 25px;
+        background-color: rgba(39, 39, 70, 0.914);
+        border: 1px solid #fff;
+        border-radius: 10px;
+        text-align: right;
+        opacity: 1;
+        transition: 0.4s;
+    }
+
+    
+    header #snb .sub_menu.hide{
+        opacity: 0;
+    }
+
+    header #snb .sub_menu li {
+        padding: 10px 0px;
+        font: 16px/1 'Patrick Hand' ;
+    }
+
+    header #snb .sub_menu li a {
+        color: rgb(202, 197, 197);
+    }
+    
+    header #snb .sub_menu li a i{
+        margin-left: 8px;
+    }
+    figure .text p {
+        font-size: 10vw;
+    }
+};
