@@ -11,6 +11,7 @@ body{
     height: 100vh; /*100%로 쓰는 것보다 100vh가 안전, 자식요소 쫓아갈 때가 있기 때문 */
     overflow: hidden;
     background-color: #b1e1e2;
+    animation: sky linear 10s infinite;
 }
 
 section {
@@ -20,5 +21,173 @@ section {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid orange;
+}
+
+section .sky {
+    width: 100%;
+    height: 100%;
+    position: relative; 
+}
+
+section .sky .sun {
+    width: 180px;
+    position: absolute;
+    display: block;
+    left: 50%;
+    margin-left: -90px; /* 중앙정렬하기 위한 그림의 크기 마이너스!  */
+    top: -130px;
+
+    transform-origin: center 600px; /* X축과 Y축으로 쓴다. 기준점을 주지 않으면 태양그림 본인의 중점을 기준으로 돌아간다. */
+
+    animation: sun linear 10s infinite; /* 애니메이션 이름, 진행형태, 지속시간, 반복횟수 */
+}
+
+section .sky .moon {
+    width: 160px;
+    position: absolute;
+    display: block;
+    left: 50%;
+    margin-left: -80px; 
+    top: -130px;
+
+    transform-origin: center 600px;
+    animation: moon linear 10s infinite;
+}
+
+section .sky .cloud_1 {
+    position: absolute;
+    width: 160px;
+    display: block;
+    top: -30px;
+
+    animation: cloud_1 linear 15s infinite;
+}
+
+section .sky .cloud_2 {
+    position: absolute;
+    width: 90px;
+    left: 12%;
+    top: 20px;
+
+    animation: cloud_2 linear 10s infinite;
+}
+
+section .city {
+    position: absolute;    
+}
+
+section .city .city_img {
+    position: absolute;
+    bottom: 0px;
+    width: 1000px; /* 부모 요소 1000px과 맞춰주기 */
+    
+    animation: city linear 10s infinite;
+}
+
+/* Keyframes */
+@keyframes sky {
+    0%{
+        background-color: #636888;
+    }
+    25% {
+        background-color: #b1e1e2;
+    }
+    50% {
+        background-color: #fcd2e2;
+    }
+    75% {
+        background-color: #675577;
+    }
+    100% {
+        background-color: #636888;
+    }
+}
+
+@keyframes city {
+    0%{
+        filter: grayscale(50%);
+    }
+    25% {
+        filter: grayscale(0%);
+    }
+    50% {
+        filter: grayscale(0%);
+    }
+    75% {
+        filter: grayscale(80%);
+    }
+    100% {
+        filter: grayscale(100%);
+    }
+}
+
+@keyframes sun {
+    0%{
+        transform: rotate(-90deg);
+        opacity: 0;
+    }
+    25% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: rotate(90deg);
+        opacity: 0;
+    }
+    75% {
+        transform: rotate(-90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(-90deg);
+        opacity: 0;
+    }
+}
+
+@keyframes moon {
+    0%{
+        transform: rotate(90deg);
+        opacity: 0;
+    }
+    25% {
+        transform: rotate(90deg);
+        opacity: 0;
+    }
+    50% {
+        transform: rotate(90deg);
+        opacity: 0;
+    }
+    75% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(-90deg);
+        opacity: 0;
+    }
+}
+
+
+@keyframes cloud_1 { /*keyframes 변수명은 css 명과 무관하니 중복이어도 ㄱㅊ */
+    0%{
+        left: 0%;
+    }
+    50% {
+        left: 85%; /* 같은 속성값을 조절해야 애니메이션이 제대로 굴러간다. */
+    }
+    100% {
+        left: 0%;
+    }
+}
+
+@keyframes cloud_2 { 
+    0% {
+        left: 12%; /* 이미 12%가 있어서 */
+    }
+    50% {
+        left: 92%; 
+    }
+    100% {
+        left: 12%;
+    }
 }
