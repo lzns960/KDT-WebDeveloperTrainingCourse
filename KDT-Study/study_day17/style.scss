@@ -1,0 +1,119 @@
+@import "Reset";
+@import "mixin";
+
+// COLOR SET
+//WRAP
+$bodyBgColor: #eee;
+$itemBgColor: #fff;
+$itemHoverBgColor: orange;
+$boxShadowColor: rgba(0,0,0,0.1);
+
+//animation 
+$interval: 0.3s;
+
+/* COMMON */
+body {
+    background-color: $bodyBgColor;
+
+
+    .wrap {
+        width: 100%;
+        border-bottom: 2px solid #ddd;
+        padding: 100px;
+        display: flex;
+        justify-content: center;
+
+        perspective:600px;
+
+        &:hover {
+            .item {
+                transform:  translate(0px, 0px) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+        
+        .item {
+            width: 300px; 
+            padding: 30px;
+            background-color: $itemBgColor;
+            margin: 50px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 20px $boxShadowColor;
+
+            transform: translate(0px, 100px) rotateY(180deg); // y축 : 양수는 위로 가고 음수는 아래로 내려간다는 것
+            transition: 0.4s;
+            opacity: 0;
+
+            // &::after {
+            //     content:"!";
+            // }
+            
+            
+
+            h2 {
+                font: bold 30px/1 "arial";
+                margin-bottom: 20px;
+
+                @if $itemBgColor == #fff {
+                    color: #333;
+                } @else {
+                    color: #fff;
+                }
+            }
+            
+            p {
+                font: normal 16px/1.5 "arial"; /* 글자높이 떨어지게 하는 것 (24만큼 띄운 거로 봄) */
+                @if $itemBgColor == #fff {
+                    color: #777;
+                } @else {
+                    color: #ccc;
+                }
+            }
+
+            a {
+                @include btn($width: 100px, $bgColor: red, $fontColor: white);
+            }
+
+            $bgColors: (orange, hotpink, aqua, lightgreen);
+
+            @each $el in $bgColors {
+                $index: index($bgColors, $el); //$bgColors 안에서 $el이 몇번째인지 불러오는 메소드
+                &:nth-of-type(#{$index}){
+                    transition-delay: $interval * $index;
+                    // h2 {
+                    //     color: $el;
+                    // }
+                    // p {
+                    //     color: $el;
+                    // }
+                    a {
+                        @include btn($bgColor: $el);
+                    }
+                }
+            } 
+
+
+            // @for $i from 1 to 5 { //through 4와 같은 뜻 (<=) 
+            //     &:nth-of-type(#{$i}){ //nth-of-type 같은 것에 숫자 값을 넣고 싶으면 #{} 안에 넣어야하고 변수명은 $를 붙혀 사용한다. 
+            //     transition-delay: $interval * $index;
+            //     }
+            // }
+
+            &:nth-of-type(1){
+                transition-delay: .1s;
+            }
+            
+            &:nth-of-type(2){
+                transition-delay: .2s;
+            }
+            
+            &:nth-of-type(3){
+                transition-delay: .3s;
+            }
+
+            &:nth-of-type(4){
+                transition-delay: .4s;
+            }
+        }
+    }
+}

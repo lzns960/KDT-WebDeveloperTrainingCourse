@@ -1,0 +1,136 @@
+@charset "UTF-8";
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+} /* COMMON */
+body {
+  background-color: #eee;
+}
+body .wrap {
+  width: 100%;
+  border-bottom: 2px solid #ddd;
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+  perspective: 600px;
+}
+body .wrap:hover .item {
+  transform: translate(0px, 0px) rotateY(0deg);
+  opacity: 1;
+}
+body .wrap .item {
+  width: 300px;
+  padding: 30px;
+  background-color: #fff;
+  margin: 50px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+  transform: translate(0px, 100px) rotateY(180deg);
+  transition: 0.4s;
+  opacity: 0;
+}
+body .wrap .item h2 {
+  font: bold 30px/1 "arial";
+  margin-bottom: 20px;
+  color: #333;
+}
+body .wrap .item p {
+  font: normal 16px/1.5 "arial"; /* 글자높이 떨어지게 하는 것 (24만큼 띄운 거로 봄) */
+  color: #777;
+}
+body .wrap .item a {
+  /*매개변수를 기본 설정해놓지 않으면 다 선언을 해야지만 에러가 안뜬다. */
+  display: block; /* a태그의 기본 display는 inline이기에 width와 height가 안먹는다 이를 방지하기 위해 block으로 선언 */
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: red;
+  color: white;
+  text-align: center;
+  font: bold 16px/30px "arial";
+  margin-top: 20px;
+}
+body .wrap .item:nth-of-type(1) {
+  transition-delay: 0.3s;
+}
+body .wrap .item:nth-of-type(1) a {
+  /*매개변수를 기본 설정해놓지 않으면 다 선언을 해야지만 에러가 안뜬다. */
+  display: block; /* a태그의 기본 display는 inline이기에 width와 height가 안먹는다 이를 방지하기 위해 block으로 선언 */
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: orange;
+  color: white;
+  text-align: center;
+  font: bold 16px/30px "arial";
+  margin-top: 20px;
+}
+body .wrap .item:nth-of-type(2) {
+  transition-delay: 0.6s;
+}
+body .wrap .item:nth-of-type(2) a {
+  /*매개변수를 기본 설정해놓지 않으면 다 선언을 해야지만 에러가 안뜬다. */
+  display: block; /* a태그의 기본 display는 inline이기에 width와 height가 안먹는다 이를 방지하기 위해 block으로 선언 */
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: hotpink;
+  color: white;
+  text-align: center;
+  font: bold 16px/30px "arial";
+  margin-top: 20px;
+}
+body .wrap .item:nth-of-type(3) {
+  transition-delay: 0.9s;
+}
+body .wrap .item:nth-of-type(3) a {
+  /*매개변수를 기본 설정해놓지 않으면 다 선언을 해야지만 에러가 안뜬다. */
+  display: block; /* a태그의 기본 display는 inline이기에 width와 height가 안먹는다 이를 방지하기 위해 block으로 선언 */
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: aqua;
+  color: white;
+  text-align: center;
+  font: bold 16px/30px "arial";
+  margin-top: 20px;
+}
+body .wrap .item:nth-of-type(4) {
+  transition-delay: 1.2s;
+}
+body .wrap .item:nth-of-type(4) a {
+  /*매개변수를 기본 설정해놓지 않으면 다 선언을 해야지만 에러가 안뜬다. */
+  display: block; /* a태그의 기본 display는 inline이기에 width와 height가 안먹는다 이를 방지하기 위해 block으로 선언 */
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: lightgreen;
+  color: white;
+  text-align: center;
+  font: bold 16px/30px "arial";
+  margin-top: 20px;
+}
+body .wrap .item:nth-of-type(1) {
+  transition-delay: 0.1s;
+}
+body .wrap .item:nth-of-type(2) {
+  transition-delay: 0.2s;
+}
+body .wrap .item:nth-of-type(3) {
+  transition-delay: 0.3s;
+}
+body .wrap .item:nth-of-type(4) {
+  transition-delay: 0.4s;
+}
+
+/*# sourceMappingURL=style.css.map */

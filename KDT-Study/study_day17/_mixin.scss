@@ -1,0 +1,12 @@
+//MIXIN
+@mixin btn($width:100px , $bgColor:grey, $fontColor:white) { /*매개변수를 기본 설정해놓지 않으면 다 선언을 해야지만 에러가 안뜬다. */
+    display: block; /* a태그의 기본 display는 inline이기에 width와 height가 안먹는다 이를 방지하기 위해 block으로 선언 */
+    width: $width;
+    height: 30px;
+    border-radius: 15px;
+    background-color: $bgColor;
+    color: $fontColor;
+    text-align: center;
+    font: bold 16px/30px "arial";
+    margin-top: 20px;
+}
