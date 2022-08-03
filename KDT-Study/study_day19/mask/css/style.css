@@ -1,0 +1,54 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+section article {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: bold 100px/1 "arial";
+  color: #fff;
+}
+section article.lower {
+  background-color: pink;
+}
+section article.upper {
+  background-color: aqua;
+  -webkit-mask: url("../src/mask1.png");
+  -webkit-mask-size: 2300% 100%;
+  -webkit-mask-position: 0% 0%;
+}
+section article.upper.on {
+  -webkit-animation: maskPlay 1.4s steps(22) forwards;
+          animation: maskPlay 1.4s steps(22) forwards;
+}
+
+@-webkit-keyframes maskPlay {
+  0% {
+    -webkit-mask-position: 0% 0%;
+  }
+  100% {
+    -webkit-mask-position: 100% 0%;
+  }
+}
+
+@keyframes maskPlay {
+  0% {
+    -webkit-mask-position: 0% 0%;
+  }
+  100% {
+    -webkit-mask-position: 100% 0%;
+  }
+}/*# sourceMappingURL=style.css.map */

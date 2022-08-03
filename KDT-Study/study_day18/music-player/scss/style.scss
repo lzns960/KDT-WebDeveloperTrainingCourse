@@ -1,0 +1,63 @@
+/* RESET */
+@import "reset";
+
+/* FONT */
+@font-face {
+    font-family: "b_sans_serif";
+    src: url(../font/bold_sans_serif_7.ttf) format("truetype");
+}
+
+body {
+    font: 16px/1 "b_sans_serif";
+}
+/* UI */
+figure {
+    width: 100%;
+    height: 100vh; //내가 보고 있는 크기만큼만 전체 figure 크기를 주겠다. not 100%
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(25deg, #1C1C1B,#1C1C1B);
+
+    h1 {
+        position: absolute;
+        top: 7vh;
+        left: 4vw;
+        font-size: 0;
+    
+        strong {
+            font: bold 40px/1.4 "b_sans_serif";
+            color: #CE4A7E;
+            letter-spacing: 1px; //자간
+        }
+    
+        span {
+            font:16px/1 "b_sans_serif";
+            color: #CE4A7E;
+            opacity: 0.8;
+            letter-spacing: 2px;
+        }
+    }
+
+    .menu {
+        position: absolute;
+        top: 8vh;
+        right: 4vw;
+        font-size: 30px; // i 태그의 사이즈 조절 위함 
+        color: #CE4A7E;
+    }
+    
+    /* PANEL */
+    @import "panel";
+    /* BTNS */
+    @import "btns";
+
+    >p {
+        position: absolute;
+        bottom: 7vh;
+        left: 50%; //뷰포트의 50%
+        transform: translate(-50%, 0); //p 태그 크기의 -50%
+        font: 16px/1 "b_sans_serif";
+        color: #CE4A7E;
+    }
+}
+
