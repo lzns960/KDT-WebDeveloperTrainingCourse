@@ -1,0 +1,46 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  text-align: center;
+  font: bold 100px/100vh "arial";
+  color: white;
+  /*
+  .box {
+      width: 200px;
+      height: 200px;
+      background-color: plum;
+      margin-bottom: 50px;
+      text-align: center;
+      line-height: 200px;
+  }
+
+  .box0 {
+      width: 100%;
+      height: 100vh;
+      background-color: purple;
+  } */
+}
+main section {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+main section.palevioletred {
+  background-color: palevioletred;
+}
+main section.palegoldenrod {
+  background-color: palegoldenrod;
+}
+main section.palegreen {
+  background-color: palegreen;
+}
+main section.paleturquoise {
+  background-color: paleturquoise;
+}/*# sourceMappingURL=style.css.map */
