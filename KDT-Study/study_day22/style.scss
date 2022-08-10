@@ -1,0 +1,217 @@
+// FONT
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+// font-family: 'Permanent Marker', cursive;
+
+// RESET
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;    
+}
+
+ul, ol {
+    list-style: none;
+}
+
+//Start
+main {
+    overflow: hidden;     
+    section {
+        position: relative;
+        height: 100vh;
+        width: 100%;        
+        padding: 5vw;
+
+
+        img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            display: block;
+            object-fit: cover;
+        }
+
+        &.slide1 {
+            height: 120vh;            
+            background-color: coral;
+            text-align: center;
+            font: 12vh/1.8 "Permanent Marker";
+            color: white;            
+
+            // &::after {
+            //     content: "";
+            //     display: block;
+            //     position: absolute;
+            //     z-index: 2;
+            //     bottom: 0px;
+            //     left: 0px;
+            //     width: 100%;
+            //     height: 20vh;            
+            //     background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(247, 94, 87, 1));
+            // }
+        }        
+
+        &.slide2 {   
+            height: 135vh;            
+            // &::before {
+            //     content: "";
+            //     display: block;
+            //     position: absolute;
+            //     z-index: 2;
+            //     top: 0px;
+            //     left: 0px;
+            //     width: 100%;
+            //     height: 50vh;            
+            //     background: linear-gradient(180deg, rgba(247, 94, 87, 1), rgba(255, 127, 80, 0));
+            // }
+
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+                width: 100%;
+                height: 40vh;            
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgb(17, 17, 31));
+            }
+
+            img {
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                display: block;
+                object-fit: cover;
+                
+    
+                &.plane {
+                    top: 95vh;
+                    left: 2vw;
+                    height: 10vh;
+                }        
+            }
+        }
+
+        &.slide3 {
+            height: 150vh;
+            background: rgb(17, 17, 31);            
+            text-align: center;
+            font: bold 7vh/60vh "arial";
+            color: white;    
+
+            h2 {
+                position: absolute;
+                opacity: 0;                
+
+                &.s3-slogan1 {
+                    top: 15%;
+                    scale: 2;
+                }
+
+                &.s3-slogan2 {
+                    top: 25%;
+                    scale: 2;
+                }
+
+                &.s3-slogan3 {
+                    top: 40%;
+                    left: 35%;
+                    scale: 2;
+                }
+            }
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                z-index: 2;
+                bottom: -5px;
+                left: 0;
+                width: 100%;
+                height: 30vh;            
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgb(212, 209, 209));
+                
+            }
+        }
+
+        &.slide4 {                       
+            position: relative;
+            height: 190vh;                    
+            text-align: center;
+            font: bold 7vh/60vh "arial";
+            color: white;
+            
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                z-index: 2;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 40vh;           
+                background: linear-gradient(180deg, rgb(212, 209, 209), rgba(0, 0, 0, 0));
+            }
+
+            .beach {
+                position: absolute;
+                width: 180%;                
+                left: -35%;
+                object-fit: cover;                
+            }
+
+            .tree-left {
+                width: 40vw;
+                left: 8vw;
+                top: 70vh;
+                transform: rotateY(180deg) scale(2);
+            }
+
+            .tree-right {
+                width: 40vw;
+                left: 55vw;
+                top: 70vh;
+                transform: scale(2);
+            }   
+
+            .text {                
+                position: absolute;
+                top: 65%;
+                left: 50%;
+                transform: translate(-50%, 0);
+                font: bold 15vh/1 "arial";
+                color: white;
+            }
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                z-index: 2;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 40vh;           
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0), white);
+            }
+        }
+
+        &.slide5 {                       
+            position: relative;            
+            background-color: white;            
+            text-align: center;
+
+            
+            .s5-slogan1 {                
+                font: bold 15vh/60vh "arial";
+                color: black;
+                opacity: 1;                
+            }
+        }
+    }    
+}
