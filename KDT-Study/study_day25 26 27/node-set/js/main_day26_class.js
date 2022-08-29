@@ -25,7 +25,7 @@ class ElecCar extends Car {
 			);
 		};
 		this.showSpec() {
-			super.showSpec(); 
+			super.showSpec();
 			console.log(`그리고 이 차는 ${fuel} 힘으로 주행 합니다.`);
 		};
   };
