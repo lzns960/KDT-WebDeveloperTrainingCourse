@@ -1,0 +1,19 @@
+body {
+  background-color: rgb(145, 90, 162);
+  margin-left: 40px;
+}
+* {
+  color: white;
+}
+h1 {
+  background-color: azure;
+  color: gray;
+}
+p {
+
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+}
