@@ -2,7 +2,7 @@
 
 const express = require('express');
 
-const router = express.Router();
+const userRouter = express.Router();
 
 const USER = [
   {
@@ -17,9 +17,9 @@ const USER = [
   },
 ];
 
-router.get('/', (req, res) => {
+userRouter.get('/', (req, res) => {
   const userLen = USER.length;
-  res.render('index', { USER, userCounts: userLen, imgName: 'couple.jpg' });
+  res.render('index', { USER, userCounts: userLen, imgName: 'flower.gif' });
 
   /*  res.write('<h1>Hello, Dynamic Web page</h1>');
   for (let i = 0; i < USER.length; i++) {
@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
 //   res.send(USER);
 // });
 
-router.get('/:id', (req, res) => {
+userRouter.get('/:id', (req, res) => {
   const userData = USER.find((user) => user.id === req.params.id);
   if (userData) {
     res.send(userData);
@@ -45,7 +45,7 @@ router.get('/:id', (req, res) => {
   }
 });
 
-router.post('/', (req, res) => {
+userRouter.post('/', (req, res) => {
   if (req.query.id && req.query.name && req.query.email) {
     const newUser = {
       id: req.query.id,
@@ -62,7 +62,7 @@ router.post('/', (req, res) => {
   }
 });
 
-router.put('/:id', (req, res) => {
+userRouter.put('/:id', (req, res) => {
   if (req.query.id && req.query.name && req.query.email) {
     const userData = USER.find((user) => user.id === req.params.id);
     if (userData) {
@@ -86,7 +86,7 @@ router.put('/:id', (req, res) => {
   }
 });
 
-router.delete('/:id', (req, res) => {
+userRouter.delete('/:id', (req, res) => {
   const arrIndex = USER.findIndex((user) => user.id === req.params.id);
   if (arrIndex !== -1) {
     USER.splice(arrIndex, 1);
@@ -98,4 +98,4 @@ router.delete('/:id', (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = userRouter;

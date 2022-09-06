@@ -10,9 +10,11 @@
   <script src="./js/test.js"></script>
 </head>
 
-<body>
-  <h1>회원 목록</h1>
-  <h2>총 회원 수 <%= userCounts %></h2>
+<body>  
+  <div class="title">
+    <h1>회원 목록</h1>
+    <h2>총 회원 수 <%= userCounts %></h2>
+  </div>
   <ul>
     <% if(userCounts > 0) { %>
       <% for (let i = 0; i < userCounts; i++) { %>
