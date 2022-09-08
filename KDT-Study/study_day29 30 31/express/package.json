@@ -1,7 +1,7 @@
 {
   "name": "express",
   "version": "1.0.0",
-  "description": "",
+  "description": "* posts.js 의 데이터: title, content 를 가지는 배열\r * posts.js 서비스 내용\r   1. 글 전체 목록 조회 GET localhost:4000/posts \r   2. 특정 title 을 가진 글 조회 GET localhost:4000/posts/:title\r   3. 새로운 글 작성 POST localhost:4000/posts?title=title&content=content\r   4. 특정 title 을 가진 글 수정 PUT localhost:4000/posts/:title?title=title&content=content\r   5. 특정 title 을 가진 글 삭제 DELETE localhost:4000/posts/:title\r * 글 전체 목록은 조회는 ejs 를 사용하여 글의 제목과 내용을 출력하는 페이지 만들기\r * 모든 기능은 routes/posts.js 에서 작성\r * app.js 에서는 모듈 방식으로 posts.js 를 라우팅하여 사용",
   "main": "index.js",
   "scripts": {
     "server": "nodemon app.js",
@@ -12,7 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^4.17.13",
-    "@types/node": "^18.7.14",
+    "@types/node": "^18.7.16",
     "ejs": "^3.1.8",
     "eslint": "^8.23.0",
     "eslint-config-airbnb-base": "^15.0.0",

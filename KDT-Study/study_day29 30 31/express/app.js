@@ -16,9 +16,12 @@ const userRouter = require('./routes/users');
 
 const postsRouter = require('./routes/posts');
 
+const boardRouter = require('./routes/boards');
+
 app.use('/', router);
 app.use('/users', userRouter); // users에 대한 routing은 이 곳에서 되고
 app.use('/posts', postsRouter);
+app.use('/boards', boardRouter);
 
 app.set('view engine', 'ejs'); // 뷰엔진을 ejs로 쓴다는 것 ~
 app.set('views', 'views'); // 뷰엔진 파일은 views 폴더에 있다는 뜻

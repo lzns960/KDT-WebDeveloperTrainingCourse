@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  @font-face {
+    font-family: 'ONE-Mobile-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Title.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+  /* font-family: 'Roboto', sans-serif; */
+
+  * {
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Roboto', 'ONE-Mobile-Title', sans-serif;
+  }
+  body {
+    background-color:darkgreen;
+    width: 80%;
+    margin: auto;
+  }
+  .title {
+    background-color: white;
+    height: 8vw;
+    padding: 2vw 0 0 2vw;
+    margin: 3rem 3rem 2rem 3rem;
+  }
+
+  .title > h1 {
+    float: left;
+    font-size: 3rem;
+  }
+  form {
+    text-align: center;
+  }
+  label {
+    margin-right: 20px;
+    color: white;
+  }
+  #form_title input{
+    height: 36px;
+    font-size: 16px;
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 5px;
+  }
+  #form_content textarea{
+    width: 80%;
+    padding: 8px;
+    font-size: 16px;
+  }
+  .btn {
+    display: block;
+    float: right;
+    width: 95px;
+    height: 30px;
+    padding: 5px 10px;
+    margin-top: 20px;
+    background-color: black;
+    margin-right: 85px;
+  }
+  .btn > a {
+  position: absolute;
+  color: white;
+  }
+  button.btn:hover {
+  background-color: darkgreen;
+  border:1px solid white;
+  }
+  .btn:hover a {
+  color: white;
+  }
+  button {
+    color: white;
+  }
+</style>
+<body>
+  <div class="title">
+      <h1>Write Mode</h1>
+  </div>
+  <form action="/boards" method="POST">
+    <div id="form_title">
+      <label>제목</label><!--input 태그를 설명 -->
+      <input  type="text" name="title"/>
+    </div>
+    <div id="form_content">
+      <label>내용</label>
+      <textarea name="content" id="content" cols="30" rows="10">
+      </textarea>
+    </div>
+    <button class="btn green" type="submit">등록</button>
+  </form>  
+</body>
+</html>

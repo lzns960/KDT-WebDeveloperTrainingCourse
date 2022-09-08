@@ -8,18 +8,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 /* font-family: 'Roboto', sans-serif; */
 
-
-body {
-  background-color:darkgreen;
-}
-
-
-
 * {
+  margin: 0;
+  box-sizing: border-box;
   font-size: 16px;
   font-family: 'Roboto', 'ONE-Mobile-Title', sans-serif;
-  margin: 0;
+}
+body {
+  background-color:darkgreen;
+  width: 80%;
+  margin: auto;
+}
+
+ul, ol {
+  list-style: none;
   padding: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 .title {
@@ -29,20 +36,9 @@ body {
   margin: 3rem 3rem 2rem 3rem;
 }
 
-h1 {
+.title > h1 {
   float: left;
   font-size: 3rem;
-}
-
-h3 {
-  font-weight: lighter;
-  margin: 3rem 3rem 2rem 3rem;
-  padding: 2vw 0 0 2vw;
-}
-
-a {
-  text-decoration: none;
-  color: white;
 }
 
 img { 
@@ -87,4 +83,25 @@ li>a {
 p:nth-of-type(1) {
   padding-bottom: 1vw;
   text-shadow: 1px 1px 3px gray;
+}
+
+.btn {
+
+  display: block;
+  float: right;
+  width: 95px;
+  height: 30px;
+  padding: 5px 10px;
+  margin-top: 20px;
+  background-color: black;
+}
+.btn > a {
+  position: absolute;
+  color: white;
+}
+.btn:hover {
+  background-color: darkgreen;
+}
+.btn:hover a {
+  color: white;
 }
