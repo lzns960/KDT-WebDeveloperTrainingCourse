@@ -26,11 +26,6 @@ boardRouter.get('/write', (req, res) => {
   res.render('write', { BOARD });
 });
 
-boardRouter.get('/modify/:title', (req, res) => {
-  const boardLen = BOARD.length;
-  res.render('modify', { BOARD, boardCounts: boardLen });
-});
-
 boardRouter.get('/:title', (req, res) => {
   const boardData = BOARD.find((board) => board.title === req.params.title);
   if (boardData) {
@@ -78,7 +73,24 @@ boardRouter.post('/', (req, res) => {
   }
 });
 
-boardRouter.put('/modify/:title', (req, res) => {
+// modify 불러오기
+boardRouter.get('/modify/:title', (req, res) => {
+  const boardData = BOARD.find((board) => board.title === req.params.title);
+  if (boardData) {
+    const arrIndex = BOARD.findIndex(
+      (board) => board.title === req.params.title
+    );
+    const modifyBoard = BOARD[arrIndex];
+    res.render('modify', { modifyBoard });
+  } else {
+    const err = new Error('post not found');
+    err.statusCode = 404;
+    throw err;
+  }
+});
+
+// 글 수정
+boardRouter.post('/modify/:title', (req, res) => {
   if (Object.keys(req.query).length >= 1) {
     if (req.query.title && req.query.content) {
       const boardData = BOARD.find((board) => board.title === req.params.title);
