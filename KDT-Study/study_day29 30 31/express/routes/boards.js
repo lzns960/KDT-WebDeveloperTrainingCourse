@@ -91,54 +91,16 @@ boardRouter.get('/modify/:title', (req, res) => {
 
 // 글 수정
 boardRouter.post('/modify/:title', (req, res) => {
-  if (Object.keys(req.query).length >= 1) {
-    if (req.query.title && req.query.content) {
-      const boardData = BOARD.find((board) => board.title === req.params.title);
-      if (boardData) {
-        const arrIndex = BOARD.findIndex(
-          (board) => board.title === req.params.title
-        );
-        const modifyBoard = {
-          title: req.query.title,
-          content: req.query.content,
-        };
-        BOARD[arrIndex] = modifyBoard;
-        res.redirect('/boards');
-      } else {
-        const err = new Error('title not found');
-        err.statusCode = 404;
-        throw err;
-      }
-    } else {
-      const err = new Error('Unexpected Query');
-      err.statusCode = 404;
-      throw err;
-    }
-  } else if (req.body) {
-    if (req.query.title && req.query.content) {
-      const boardData = BOARD.find((board) => board.title === req.params.title);
-      if (boardData) {
-        const arrIndex = BOARD.findIndex(
-          (board) => board.title === req.params.title
-        );
-        const modifyBoard = {
-          title: req.query.title,
-          content: req.query.content,
-        };
-        BOARD[arrIndex] = modifyBoard;
-        res.redirect('/boards');
-      } else {
-        const err = new Error('title not found');
-        err.statusCode = 404;
-        throw err;
-      }
-    } else {
-      const err = new Error('Unexpected Form data');
-      err.statusCode = 404;
-      throw err;
-    }
+  if (req.body.title && req.body.content) {
+    const arrIndex = BOARD.findIndex(
+      (board) => board.title === req.params.title
+    );
+    BOARD[arrIndex].title = req.body.title;
+    BOARD[arrIndex].content = req.body.content;
+
+    res.redirect('/boards');
   } else {
-    const err = new Error('No data');
+    const err = new Error('요청 값이 없습니다.');
     err.statusCode = 404;
     throw err;
   }

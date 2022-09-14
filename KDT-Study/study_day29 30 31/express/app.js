@@ -3,7 +3,6 @@
 const express = require('express'); // express 프레임워크 불러오기
 /* const bodyParser = require('body-parser'); // body-parser 설치 */
 // const fs = require('fs');
-
 const app = express();
 const PORT = 4000;
 
@@ -18,10 +17,13 @@ const postsRouter = require('./routes/posts');
 
 const boardRouter = require('./routes/boards');
 
+const tetzRouter = require('./routes/tetz_board');
+
 app.use('/', router);
 app.use('/users', userRouter); // users에 대한 routing은 이 곳에서 되고
 app.use('/posts', postsRouter);
 app.use('/boards', boardRouter);
+app.use('/tetz_board', tetzRouter);
 
 app.set('view engine', 'ejs'); // 뷰엔진을 ejs로 쓴다는 것 ~
 app.set('views', 'views'); // 뷰엔진 파일은 views 폴더에 있다는 뜻
@@ -37,6 +39,7 @@ app.use((err, req, res, next) => {
   res.end(err.message);
 });
 
+// 서버를 구동하는 전부
 app.listen(PORT, () => {
   console.log(`The express server is running at ${PORT}.`);
 });
