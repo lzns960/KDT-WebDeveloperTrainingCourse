@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- fontawesome -->
+  <script defer src="https://kit.fontawesome.com/be47d6bb17.js" crossorigin="anonymous"></script>
+
+  <style>
+    a {
+      color: white;
+    }
+    a:hover {
+      text-shadow: 3px 3px 2px black;
+    }
+    h3 {
+      font-weight: lighter;
+      margin: 3rem 3rem 2rem 3rem;
+      padding: 2vw 0 0 2vw;
+    }
+  </style>
+</head>
+<script>
+  console.log(document.cookie);
+  // document.cookie ="user=kdt; expires=19 Sep 2022 13:00:00 GMT; path=/";
+  // document.cookie ="test=test; expires=19 Sep 2022 13:00:00 GMT; path=/";
+  // console.log(document.cookie);
+
+  window.onload = () => {
+    if(document.cookie) alert(`프론트 쿠키 팔아요 ${document.cookie}`);
+    if('<%= alert %>' === 'true') alert('백엔드 쿠키 팔아요 <%= alert %>');
+  }
+</script>
+<body>
+  <div class="title">
+    <h1>Hello, Express Service</h1>
+  </div>
+  <h3><a href="/users">Move to User Service &nbsp;&nbsp;<i class="fa-solid fa-square-caret-right"></i> </a></h3>
+  <h3><a href="/posts">Move to Post Service &nbsp;&nbsp;<i class="fa-solid fa-square-caret-right"></i></a></h3>
+  <h3><a href="/boards">Move to Boards Service &nbsp;&nbsp;<i class="fa-solid fa-square-caret-right"></i></a></h3>
+  <h3><a href="/tetz_board">Move to tetz_Boards Service &nbsp;&nbsp;<i class="fa-solid fa-square-caret-right"></i></a></h3>
+</body>
+</html>
