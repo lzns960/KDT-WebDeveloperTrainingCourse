@@ -22,6 +22,7 @@ router.post('/', async (req, res) => {
     const result = await userCursor.insertOne({
       // 새롭게 생성해주세요.
       id: req.body.id,
+      name: req.body.id,
       password: req.body.password,
     });
     // result의 결과가 true면 성공!

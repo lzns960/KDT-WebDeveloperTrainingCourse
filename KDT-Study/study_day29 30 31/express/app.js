@@ -8,17 +8,18 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 /* PASSPORT 모듈 */
 const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const mongoClient = require('./routes/mongo');
+/* DOTENV 중요 정보 관리 모듈 */
+require('dotenv').config();
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT;
 
 // 바디파서
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// 쿠키파서
-app.use(cookieParser());
+/* 쿠키파서 */
+// 암호화된 쿠키만들기: 쿠키파서에서 키 값을 입력하면 암호화!
+app.use(cookieParser('suji'));
 // 세션
 app.use(
   session({
@@ -36,47 +37,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(
-  new LocalStrategy(
-    {
-      usernameField: 'id',
-      passwordField: 'password',
-    },
-    async (id, password, cb) => {
-      const client = await mongoClient.connect();
-      const userCursor = client.db('kdt1').collection('users');
-      // id 중복여부 체크
-      const idResult = await userCursor.findOne({ id }); // id: id면 id로 해도 된다.
-      if (idResult !== null) {
-        if (idResult.password == password) {
-          // 로그인 완료는 콜백함수로 처리
-          cb(null, idResult); // 널값 다음에 실제 유저정보가 되는 데이터를 넣어주면된다.
-        } else {
-          cb(null, false, { message: '해당 비밀번호가 없습니다.' });
-        }
-      } else {
-        cb(null, false, { message: '해당 id가 없습니다.' });
-      }
-    }
-  )
-);
-// 로그인이 성공되면 serializeUser의 user 매개변수로 담긴다
-passport.serializeUser((user, cb) => {
-  cb(null, user.id);
-});
-
-// deserializeUser는 서버와 통신해야하기때문에 async 필요
-// deserializeUser의 id는 serializeUser에서 넘긴 것
-// 사용자가 다른 페이지로 이동하려고 할때마다 체크
-passport.deserializeUser(async (id, cb) => {
-  const client = await mongoClient.connect();
-  const userCursor = client.db('kdt1').collection('users');
-  const result = await userCursor.findOne({ id });
-
-  // id를 가진 애가 DB에 실제로 존재한다면
-  if (result !== null) cb(null, result);
-});
-
+/* 사용자 모듈들 */
 const router = require('./routes/index');
 const userRouter = require('./routes/users');
 const postsRouter = require('./routes/posts');
@@ -84,6 +45,9 @@ const boardRouter = require('./routes/boards');
 const tetzRouter = require('./routes/tetz_board');
 const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
+const passportRouter = require('./routes/passport');
+
+passportRouter();
 
 app.use('/', router);
 app.use('/users', userRouter); // users에 대한 routing은 이 곳에서 되고
@@ -91,7 +55,7 @@ app.use('/posts', postsRouter);
 app.use('/boards', boardRouter);
 app.use('/tetz_board', tetzRouter);
 app.use('/register', registerRouter);
-app.use('/login', loginRouter);
+app.use('/login', loginRouter.router); // loginRouter = { router, isLogin}이기 때문에 .router를 사용하여 미들웨어만 불러준다.
 
 app.set('view engine', 'ejs'); // 뷰엔진을 ejs로 쓴다는 것 ~
 app.set('views', 'views'); // 뷰엔진 파일은 views 폴더에 있다는 뜻

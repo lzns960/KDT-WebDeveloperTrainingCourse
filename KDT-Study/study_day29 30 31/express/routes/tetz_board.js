@@ -6,26 +6,16 @@ const router = express.Router();
 
 const mongoClient = require('./mongo');
 
+const login = require('./login');
+
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const { resolveTypeReferenceDirective } = require('typescript');
 
 const uri =
   'mongodb+srv://suji:mtn191371wl@cluster0.s7lxybo.mongodb.net/?retryWrites=true&w=majority';
 
-/* 로그인 여부에 따라 게시판 사용 */
-function isLogin(req, res, next) {
-  if (req.session.login || req.user) {
-    next(); // next 매개변수: 이 코드가 실행되면 다음 미들웨어로 넘겨준다.
-  } else {
-    res.status(300);
-    res.send(
-      '로그인이 필요한 서비스입니다.<br> <a href="/login">로그인 페이지로 이동</a>'
-    );
-  }
-}
-
 /* 글 전체 목록 보여주기 */
-router.get('/', isLogin, async (req, res) => {
+router.get('/', login.isLogin, async (req, res) => {
+  console.log(req.user);
   // await 붙은 순간은 이전에 다 callback으로 처리한 순간들이다.
   const client = await mongoClient.connect();
   // 데이터를 변화할 때 콜백을 걸어주면 되는 거니까 위치만 알려주는 정보만 넣어준다.(await 필요없음)
@@ -37,21 +27,31 @@ router.get('/', isLogin, async (req, res) => {
     ARTICLE,
     articleCounts: articleLen,
     // 세션에 담겨있는 userID
-    userId: req.session.userId ? req.session.userId : req.user.id,
+    // 세션으로 로그인했니? 있으면 로그인 아니면(: 삼항 연산자 연쇄 )
+    userId: req.session.userId
+      ? req.session.userId
+      : req.user?.id
+      ? req.user?.id
+      : req.signedCookies.id,
+    // req.user에 id가 있니? 있으면id 반환 없으면 signedCookieuser로
+    /* undefined에 물음표 사용법 */
+    // req.user에 물음표를 넣는 것은 undefined 때문, 세션은 서버꺼라 undefined 발생안한다.
+    // req.user가 undefined면 문제 없지만 undefined에서 .을 넣어서 키 값(id)를 찾으려고 하면 에러 발생하기 때문에 물음표를 넣어 넘어간다.
   });
 });
 
 /* 글 쓰기 모드로 이동 */
-router.get('/write', isLogin, (req, res) => {
+router.get('/write', login.isLogin, (req, res) => {
   res.render('tetz_board_write');
 });
 
 /* 글 추가 기능 수행 */
-router.post('/write', isLogin, async (req, res) => {
+router.post('/write', login.isLogin, async (req, res) => {
   if (req.body.title && req.body.content) {
     const newArticle = {
-      // 아이디 값은 로그인한 유저의 아이디 값으로 추가
-      id: req.session.userId,
+      // 아이디 값: 세션이 있으면 세션 값 아니면 req.user.id
+      id: req.session.userId ? req.session.userId : req.user.id,
+      userName: req.user?.name ? req.user.name : req.user?.id,
       title: req.body.title,
       content: req.body.content,
     };
@@ -67,7 +67,7 @@ router.post('/write', isLogin, async (req, res) => {
 });
 
 /* 글 수정모드로 이동 */
-router.get('/modify/title/:title', isLogin, async (req, res) => {
+router.get('/modify/title/:title', login.isLogin, async (req, res) => {
   const client = await mongoClient.connect();
   const cursor = client.db('kdt1').collection('board');
   // title과 params의 타이틀이 동일하다면, 해당 데이터가 selectedArticle이 들어간다.
@@ -76,7 +76,7 @@ router.get('/modify/title/:title', isLogin, async (req, res) => {
 });
 
 /* 글 수정 기능 수행: 수정하기 눌렀을 때  */
-router.post('/modify/title/:title', isLogin, async (req, res) => {
+router.post('/modify/title/:title', login.isLogin, async (req, res) => {
   if (req.body.title && req.body.content) {
     const client = await mongoClient.connect();
     const cursor = client.db('kdt1').collection('board');
@@ -100,7 +100,7 @@ router.post('/modify/title/:title', isLogin, async (req, res) => {
 });
 
 /* 글 삭제 기능 수행 */
-router.delete('/delete/title/:title', isLogin, async (req, res) => {
+router.delete('/delete/title/:title', login.isLogin, async (req, res) => {
   const client = await mongoClient.connect();
   const cursor = client.db('kdt1').collection('board');
   const result = await cursor.deleteOne({ title: req.params.title });
