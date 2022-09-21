@@ -2,6 +2,10 @@
 const express = require('express');
 // express에서 제공하는 Router를 변수에 담기
 
+/* multer */
+const multer = require('multer');
+
+const fs = require('fs'); // 파일시스템은 node에서 기본제공하는 모듈이기때문에 설치할 필요 없다.
 const router = express.Router();
 
 const mongoClient = require('./mongo');
@@ -12,6 +16,23 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const uri =
   'mongodb+srv://suji:mtn191371wl@cluster0.s7lxybo.mongodb.net/?retryWrites=true&w=majority';
+
+/* MUlTER */
+const dir = './uploads';
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, dir); // 어느 폴더에 저장할지 결정
+  },
+  filename: (req, file, cb) => {
+    // 업로드할 파일명 결정
+    cb(null, file.fieldname + '_' + Date.now()); // file.fieldname(파일이 원래 가지고 있는 명) + Date.now 파일명이 겹쳐도 다르게 저장하는 보편적인 방법
+  },
+});
+
+const limits = {
+  fileSize: 1024 * 1024 * 2, // 파일 사이즈의 한계 2메가
+};
+const upload = multer({ storage, limits });
 
 /* 글 전체 목록 보여주기 */
 router.get('/', login.isLogin, async (req, res) => {
@@ -46,7 +67,11 @@ router.get('/write', login.isLogin, (req, res) => {
 });
 
 /* 글 추가 기능 수행 */
-router.post('/write', login.isLogin, async (req, res) => {
+router.post('/write', login.isLogin, upload.single('img'), async (req, res) => {
+  // upload 멀터의 single ejs의 name:img를 넣는다.
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir); // dir 폴더가 있는지 확인(existsSync)하고 없으면 (mkdirSync) dir라는 폴더를 만들어라
+  // existsSync 상황에 맞게 폴더가 존재하는지 확인하는 함수 Sync가 들어간 함수는 기본으로 await가 들어가있는 함수라고 생각(편리)
+  console.log(req.file);
   if (req.body.title && req.body.content) {
     const newArticle = {
       // 아이디 값: 세션이 있으면 세션 값 아니면 req.user.id
@@ -54,6 +79,7 @@ router.post('/write', login.isLogin, async (req, res) => {
       userName: req.user?.name ? req.user.name : req.user?.id,
       title: req.body.title,
       content: req.body.content,
+      img: req.file ? req.file.filename : null,
     };
 
     // client에 접속에 관련된 정보를 가져온다.

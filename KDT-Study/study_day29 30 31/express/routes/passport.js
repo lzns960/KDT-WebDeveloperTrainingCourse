@@ -1,8 +1,13 @@
 /* PASSPORT 모듈 */
 const passport = require('passport');
-/* 전략- Local, naver */
+/* 전략 */
 const LocalStrategy = require('passport-local').Strategy;
 const NaverStrategy = require('passport-naver').Strategy;
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const KakaoStrategy = require('passport-kakao').Strategy;
+/* 검증 모듈 */
+const verifyModule = require('./register').verifyPassword;
+
 /* MongoDB */
 const mongoClient = require('./mongo');
 
@@ -20,9 +25,19 @@ module.exports = () => {
         // id 중복여부 체크
         const idResult = await userCursor.findOne({ id }); // id: id면 id로 해도 된다.
         if (idResult !== null) {
-          if (idResult.password === password) {
-            // 로그인 완료는 콜백함수로 처리
-            cb(null, idResult); // 널값 다음에 실제 유저정보가 되는 데이터를 넣어주면된다.
+          if (idResult.salt !== undefined) {
+            const passwordResult = verifyModule(
+              password,
+              idResult.salt,
+              idResult.password
+            );
+            if (passwordResult) {
+              cb(null, idResult);
+            } else {
+              cb(null, false, { message: '비밀번호가 틀렸습니다.' });
+            }
+          } else if (idResult.password === password) {
+            cb(null, idResult);
           } else {
             cb(null, false, { message: '해당 비밀번호가 없습니다.' });
           }
@@ -32,6 +47,7 @@ module.exports = () => {
       }
     )
   );
+  /* 네이버 전략 */
   passport.use(
     new NaverStrategy( // 인증처리하는 곳이 어디있는지 옵션값으로 전달
       {
@@ -48,7 +64,7 @@ module.exports = () => {
           cb(null, result);
         } else {
           // sns 로그인 처음
-          const newNaverUser = {
+          const newUser = {
             id: profile.id,
             name:
               profile.displayName !== undefined
@@ -56,9 +72,79 @@ module.exports = () => {
                 : profile.emails[0].value,
             provider: profile.provider,
           };
-          const dbResult = await userCursor.insertOne(newNaverUser); // DB 니까 await 넣기
+          const dbResult = await userCursor.insertOne(newUser); // DB 니까 await 넣기
           if (dbResult.acknowledged) {
-            cb(null, newNaverUser); // 에러 없고 newNaverUser을 콜백으로 전달시켜 결과 실행
+            cb(null, newUser); // 에러 없고 newNaverUser을 콜백으로 전달시켜 결과 실행
+          } else {
+            cb(null, false, { message: '회원 생성 에러' });
+          }
+        }
+      }
+    )
+  );
+
+  /* 구글 전략 */
+  passport.use(
+    new GoogleStrategy(
+      {
+        clientID: process.env.GOOGLE_CLIENT,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        callbackURL: process.env.GOOGLE_CB_URL,
+      },
+      async (accessToken, refreshToken, profile, cb) => {
+        const client = await mongoClient.connect();
+        const userCursor = client.db('kdt1').collection('users');
+        const result = await userCursor.findOne({ id: profile.id }); // db 중에 id가 profile.id인 값
+        console.log('2');
+        if (result !== null) {
+          cb(null, result);
+        } else {
+          // sns 로그인 처음
+          const newUser = {
+            id: profile.id,
+            name:
+              profile.displayName !== undefined
+                ? profile.displayName
+                : profile.emails[0].value,
+            provider: profile.provider,
+          };
+          const dbResult = await userCursor.insertOne(newUser); // DB 니까 await 넣기
+          if (dbResult.acknowledged) {
+            cb(null, newUser); // 에러 없고 newNaverUser을 콜백으로 전달시켜 결과 실행
+          } else {
+            cb(null, false, { message: '회원 생성 에러' });
+          }
+        }
+      }
+    )
+  );
+
+  /* 카카오 전략 */
+  passport.use(
+    new KakaoStrategy(
+      {
+        clientID: process.env.KAKAO_CLIENT,
+        callbackURL: process.env.KAKAO_CB_URL,
+      },
+      async (accessToken, refreshToken, profile, cb) => {
+        const client = await mongoClient.connect();
+        const userCursor = client.db('kdt1').collection('users');
+        const result = await userCursor.findOne({ id: profile.id }); // db 중에 id가 profile.id인 값
+        if (result !== null) {
+          cb(null, result);
+        } else {
+          // sns 로그인 처음
+          const newUser = {
+            id: profile.id,
+            name:
+              profile.displayName !== undefined
+                ? profile.displayName
+                : profile.emails[0].value,
+            provider: profile.provider,
+          };
+          const dbResult = await userCursor.insertOne(newUser); // DB 니까 await 넣기
+          if (dbResult.acknowledged) {
+            cb(null, newUser); // 에러 없고 newNaverUser을 콜백으로 전달시켜 결과 실행
           } else {
             cb(null, false, { message: '회원 생성 에러' });
           }

@@ -46,6 +46,7 @@ const tetzRouter = require('./routes/tetz_board');
 const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
 const passportRouter = require('./routes/passport');
+const chatRouter = require('./routes/chat');
 
 passportRouter();
 
@@ -54,12 +55,14 @@ app.use('/users', userRouter); // users에 대한 routing은 이 곳에서 되�
 app.use('/posts', postsRouter);
 app.use('/boards', boardRouter);
 app.use('/tetz_board', tetzRouter);
-app.use('/register', registerRouter);
+app.use('/register', registerRouter.router);
 app.use('/login', loginRouter.router); // loginRouter = { router, isLogin}이기 때문에 .router를 사용하여 미들웨어만 불러준다.
+app.use('/chat', chatRouter);
 
 app.set('view engine', 'ejs'); // 뷰엔진을 ejs로 쓴다는 것 ~
 app.set('views', 'views'); // 뷰엔진 파일은 views 폴더에 있다는 뜻
 app.use(express.static('public'));
+app.use('/uploads', express.static('uploads')); // static 설정 이미지 파일 못찾으니까..
 
 // 에러 핸들링은 무조건 서버실행 아래에 있어야 한다.
 // 그래야 얻었던 라우터에서 에러가 발생했을 때 에러메세지를 발생시킨다.

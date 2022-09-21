@@ -67,4 +67,27 @@ router.get(
     failureRedirect: '/',
   })
 );
+
+/* google auth를 위한 코드 */
+router.get('/auth/google', passport.authenticate('google', { scope: 'email' }));
+
+router.get(
+  '/auth/google/callback',
+  passport.authenticate('google', {
+    successRedirect: '/tetz_board',
+    failureRedirect: '/',
+  })
+);
+
+/* kakao auth를 위한 코드 */
+router.get('/auth/kakao', passport.authenticate('kakao'));
+
+router.get(
+  '/auth/kakao/callback',
+  passport.authenticate('kakao', {
+    successRedirect: '/tetz_board',
+    failureRedirect: '/',
+  })
+);
+
 module.exports = { router, isLogin };

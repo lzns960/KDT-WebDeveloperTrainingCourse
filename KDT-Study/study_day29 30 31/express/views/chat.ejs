@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>채팅 서비스</title>
+</head>
+<body>
+  <input type="text" id="msg"/>
+  <a href="javascript:void(0);" onclick="send();">전송</a>
+  <ol id="chat"></ol>
+</body>
+
+<script>
+  let ws = new WebSocket("ws://localhost:7777");
+
+  const inputEl = document.getElementById('msg');
+  const chat = document.getElementById('chat');
+
+  function send() {
+    const msg = inputEl.value;
+    ws.send(msg);
+    inputEl.value = ''; // 전송 버튼이 눌리면 인풋 태그 초기화
+  }
+
+  // 서버로부터 메시지 수신
+  ws.onmessage = (event)=> {
+    const msgEl = document.createElement('li');
+    msgEl.innerHTML= event.data;
+    chat.appendChild(msgEl);
+  }
+/*
+  ws.onopen = (event) => {
+    ws.send('저는 클라이언트예요. 안녕하세요.');
+  }
+  ws.onmessage = (event) => {
+    console.log('서버님이 말하셨어', event.data);
+  }
+  ws.onerror = (event) => {
+    console.log('망했어요.');
+  }
+*/
+</script>
+</html>
