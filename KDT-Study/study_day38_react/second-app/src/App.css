@@ -1,15 +1,19 @@
 .App {
   display: flex;
-  justify-content: space-between;
 }
 
 .App h1 {
-  background-color: darkblue;
-  color: white
+  /* background-color: darkblue;*/
+  color: greenyellow;
 }
-
+.App h2{
+  color: blue;
+}
 .App span {
   background-color: orange;
+}
+.App p {
+  color: white;
 }
 /*
 .App-logo {
