@@ -41,7 +41,7 @@ const Additional = styled.p`
 `;
 const AdditionalImg = styled.img`
   width: 300px;
-  transform: translateX(10px) translateY(-40px);
+  transform: translateX(10px) translateY(-25px);
 `;
 const AdditionalEmoji = styled.p`
   font-size: 2em;
