@@ -20,7 +20,7 @@ export default function Start() {
   const dispatch = useDispatch();
   return (
     <>
-      <Header>Dev MBTI TesT</Header>
+      <Header>Dev MBTI Test</Header>
       <MainImg src="/images/main.jpg" alt="메인 이미지" />
       <SubHeader>
         개발자가 흔히 접하는 상황에 따라서 MBTI를 알아 봅시다!
