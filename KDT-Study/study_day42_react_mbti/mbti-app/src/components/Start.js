@@ -7,6 +7,8 @@ const MainImg = styled.img`
   width: inherit;
 `;
 const Header = styled.p`
+  font-weight: bold;
+  text-shadow: 2px 4px 5px #999;
   font-size: 3em;
 `;
 const SubHeader = styled.p`

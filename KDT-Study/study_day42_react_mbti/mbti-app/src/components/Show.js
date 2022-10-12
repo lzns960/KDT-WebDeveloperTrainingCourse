@@ -14,7 +14,7 @@ export default function Show() {
       <Explaination>{explaination.text}</Explaination>
       <Result>{result}</Result>
       <AdditionalImg src={explaination.img} alt="memoji" />
-      <Additional>이모지로 보는 MBTI 유형</Additional>
+      <Additional>재미로 보는 이모지 MBTI 해석</Additional>
       <AdditionalEmoji>{explaination.emoji}</AdditionalEmoji>
       <AdditionalSubText>{explaination.subText}</AdditionalSubText>
       <BlueButton text="다시 검사하기" clickEvent={() => dispatch(reset())} />
@@ -31,18 +31,20 @@ const Explaination = styled.p`
 `;
 const Result = styled.p`
   font-size: 3em;
+  font-weight: bold;
   color: #0b5ed7;
+  text-shadow: 2px 4px #d9dddc;
 `;
 const Additional = styled.p`
   font-size: 2em;
-  color: orange;
+  color: #ffc107;
 `;
 const AdditionalImg = styled.img`
-  width: 350px;
+  width: 300px;
   transform: translateX(10px) translateY(-40px);
 `;
 const AdditionalEmoji = styled.p`
-  font-size: 3em;
+  font-size: 2em;
 `;
 const AdditionalSubText = styled.p`
   font-size: 2em;
