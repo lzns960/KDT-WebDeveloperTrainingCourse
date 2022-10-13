@@ -3,19 +3,6 @@ import styled from 'styled-components';
 import BlueButton from './BlueButton';
 import { next } from '../store/modules/mbti';
 
-const MainImg = styled.img`
-  width: inherit;
-`;
-const Header = styled.p`
-  font-weight: bold;
-  text-shadow: 2px 4px 5px #999;
-  font-size: 3em;
-`;
-const SubHeader = styled.p`
-  font-size: 1.5em;
-  color: #777;
-`;
-
 export default function Start() {
   const dispatch = useDispatch();
   return (
@@ -29,3 +16,18 @@ export default function Start() {
     </>
   );
 }
+
+const Header = styled.p`
+  font-weight: bold;
+  text-shadow: 2px 4px 5px #999;
+  font-size: 3em;
+  margin: 2em 0 1em 0;
+`;
+const MainImg = styled.img`
+  width: inherit;
+`;
+const SubHeader = styled.p`
+  font-size: 1.5em;
+  color: #777;
+  margin: 2em 0 2em 0;
+`;

@@ -24,6 +24,7 @@ export default function Show() {
 
 const Header = styled.p`
   font-size: 3em;
+  margin: 0 0 1em 0;
 `;
 const Explaination = styled.p`
   font-size: 1.5em;
@@ -34,10 +35,13 @@ const Result = styled.p`
   font-weight: bold;
   color: #0b5ed7;
   text-shadow: 2px 4px #d9dddc;
+  margin: 1em 0 0.5em 0;
 `;
 const Additional = styled.p`
   font-size: 2em;
   color: #ffc107;
+  margin: 0.5em 0 0.5em 0;
+  transform: translateY(-20px);
 `;
 const AdditionalImg = styled.img`
   width: 300px;
@@ -45,8 +49,9 @@ const AdditionalImg = styled.img`
 `;
 const AdditionalEmoji = styled.p`
   font-size: 2em;
+  margin: 0;
 `;
 const AdditionalSubText = styled.p`
-  font-size: 2em;
+  font-size: 1.5em;
   color: #444;
 `;
